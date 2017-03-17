@@ -1,5 +1,6 @@
 var regexurl = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 var shiftDown = false;
+var ctrlDown = false;
 $(document).ready(function() {
 
 
@@ -12,6 +13,11 @@ $(document).ready(function() {
 	    {
 	    	shiftDown = true;
 	    }
+	    else if (e.keyCode == 17)
+	    {
+	    	ctrlDown = true;
+	    }
+
 	});
 
 	$( "#searchbox" ).keyup(function( e ) {
@@ -19,6 +25,10 @@ $(document).ready(function() {
 		if (e.keyCode == 16)
 	    {
 	    	shiftDown = false;
+	    }
+	    else if (e.keyCode == 17)
+	    {
+	    	ctrlDown = false;
 	    }
 
 		//set up regex search for list
@@ -35,25 +45,47 @@ $(document).ready(function() {
 			var found = false;
 			for(i=0; i < items.length;i++)
             {
-            	if(items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1 && found === false)
+            	if(items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1 && found === false && shiftDown == false)
                 {
                 	normal = false;
                 	var noSpace = items[i].innerHTML.toLowerCase().replace(/\W/g, '');
             		var itemLink = $("#"+noSpace).parent().attr('href');
-            		window.location.href = itemLink;
+
+            		if(ctrlDown == true)
+					{
+						clearBox();
+						window.open(itemLink)
+					}
+					else
+					{
+
+						window.location.href = itemLink;
+					}
+
             		found = true;
            		}
-
             }
             
             if(normal === true || shiftDown == true)
             {
 				if(regtest === true){
-					// var win = window.open("http://"+$('#searchbox').val(), '_blank');
-					window.location.href = "http://"+$('#searchbox').val();
-					// win.focus();
+					if(ctrlDown == true)
+					{
+						window.open("http://"+$('#searchbox').val())
+					}
+					else
+					{
+						window.location.href = "http://"+$('#searchbox').val();
+					}
 				} else {
-					window.location.href = "https://www.google.co.uk/search?q="+$('#searchbox').val();
+					if(ctrlDown == true)
+					{
+						window.open("https://www.google.co.uk/search?q="+$('#searchbox').val())
+					}
+					else
+					{
+						window.location.href = "https://www.google.co.uk/search?q="+$('#searchbox').val();
+					}
 				}
 			}
 		}
