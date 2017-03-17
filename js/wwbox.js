@@ -136,6 +136,8 @@ $(document).ready(function() {
 
 function clearBox(){
 	$('#searchbox').val('');
+	shiftDown = false;
+	ctrlDown = false;
 };
 
 String.prototype.regexIndexOf = function(regex, startpos) {
