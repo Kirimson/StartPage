@@ -1,0 +1,155 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		
+		<script src="js/jquery.simpleWeather.min.js"></script>
+		<script src="js/greeting.js"></script>
+		<script src="js/weather.js"></script>
+		<script src="js/section.js"></script>
+		<script src="js/datetime.js"></script>
+		<script src="js/wwbox.js"></script>
+		<title>Start Page</title>
+	</head>
+	<body>
+		<div id="info" class="gloss main">
+			<span id="date"></span><span id="time"></span>
+		</div>
+
+		<div id="greeting">
+			<span class="gloss" id="hello"></span><br/>
+			<span class="gloss" id="whatwedoing">What we doing now?</span>
+			<span class="gloss" id="wewe"></span>
+		</div>
+
+		<div id="links" class="gloss main">
+		<div class="glossheading gloss">Links</div>
+			<div id="linkcontain">
+				<div id="social" class="gloss secthead">Social</div>
+				<div id="sociallist" class="section hidden">
+					<a class="sectionlink" href="https://www.facebook.com"><div id="facebook" class="item">Facebook</div></a>
+					<a class="sectionlink" href="https://twitter.com"><div id="twitter" class="item">Twitter</div></a>
+					<a class="sectionlink" href="https://discordapp.com/channels/@me"><div id="discord" class="item">Discord</div></a>
+					<a class="sectionlink" href="https://web.whatsapp.com/"><div id="whatsapp" class="item">WhatsApp</div></a>
+				</div>
+
+				<div id="media" class="gloss secthead"><span>Media</span></div>
+				<div id="medialist" class="section hidden">
+					<a class="sectionlink" href="https://www.youtube.com/feed/subscriptions"><div id="youtube" class="item">Youtube</div></a>
+					<a class="sectionlink" href="https://www.twitch.tv/directory/following"><div id="twitch" class="item">Twitch</div></a>
+					<a class="sectionlink" href="https://osu.ppy.sh/p/packlist"><div id="osu" class="item">osu!</div></a>
+					<a class="sectionlink" href="http://www.pixiv.net"><div id="pixiv" class="item">Pixiv</div></a>
+					<a class="sectionlink" href="http://www.nicovideo.jp"><div id="niconico" class="item">NicoNico</div></a>
+					<a class="sectionlink" href="http://imgur.com"><div id="imgur" class="item">Imgur</div></a>
+					<a class="sectionlink" href="http://www.serebii.net/"><div id="serebii" class="item">Serebii</div></a>
+					<a class="sectionlink" href="http://www.deviantart.com/"><div id="deviantart" class="item">Deviant Art</div></a>
+					<a class="sectionlink" href="https://www.netflix.com/browse"><div id="netflix" class="item">Netflix</div></a>
+					<a class="sectionlink" href="http://www.bbc.co.uk/iplayer"><div id="bbciplayer" class="item">BBC iPlayer</div></a>
+					<a class="sectionlink" href="https://play.google.com/music/listen"><div id="googleplaymusic" class="item">Google Play Music</div></a>
+				</div>
+
+				<div id="temp" class="gloss secthead"><span>GBATemp</span></div>
+				<div id="templist" class="section hidden">
+					<a class="sectionlink" href="https://gbatemp.net/forums/3ds-homebrew-development-and-emulators.275/"><div id="3dshomebrew" class="item">3DS Homebrew</div></a>
+					<a class="sectionlink" href="https://gbatemp.net/forums/3ds-flashcards-custom-firmwares.201/"><div id="3dscfw" class="item">3DS CFW</div></a>
+					<a class="sectionlink" href="https://gbatemp.net/forums/3ds-rom-hacking-translations-and-utilities.276/"><div id="3dsromhacking" class="item">3DS ROM Hacking</div></a>
+					<a class="sectionlink" href="https://gbatemp.net/forums/wii-u-hacking-backup-loaders.248/"><div id="wiiuhacking" class="item">Wii U Hacking</div></a>
+					<a class="sectionlink" href="https://gbatemp.net/forums/wii-u-homebrew.281/"><div id="wiiuhomebrew" class="item">Wii U Homebrew</div></a>
+				</div>
+
+				<div id="aston" class="gloss secthead"><span>Aston</span></div>
+				<div id="astonlist" class="section hidden">
+					<a class="sectionlink" href="http://ajb.aston.ac.uk/"><div id="reflectivelearningjournal" class="item">Reflective Learning Journal</div></a>
+					<a class="sectionlink" href="http://residences.aston.ac.uk/eaccom/home.do"><div id="accomodation" class="item">Accomodation</div></a>
+					<a class="sectionlink" href="http://vle.aston.ac.uk/"><div id="blackboard" class="item">Blackboard</div></a>
+					<a class="sectionlink" href="https://www.aston.ac.uk/"><div id="astonhome" class="item">Aston Home</div></a>
+					<a class="sectionlink" href="https://www.aston.ac.uk/map/"><div id="map" class="item">MAP</div></a>
+					<a class="sectionlink" href="https://webmail.aston.ac.uk/"><div id="astonmail" class="item">Aston Mail</div></a>
+				</div>
+
+				<div id="reddit" class="gloss secthead"><span>Reddit</span></div>
+				<div id="redditlist" class="section hidden">
+					<a class="sectionlink" href="https://www.reddit.com/r/OneTrueIdol"><div id="onetrueidol" class="item">OneTrueIdol</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/startpages"><div id="startpages" class="item">Startpages</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/unixporn"><div id="unixporn" class="item">UnixPorn</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/3dshacks"><div id="3dshacks" class="item">3DSHacks</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/wiiuhacks"><div id="wiiuhacks" class="item">WiiUHacks</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/jailbreak"><div id="jailbreak" class="item">Jailbreak</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/wallpapers"><div id="wallpapers" class="item">Wallpapers</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/wallpaper"><div id="wallpaper" class="item">Wallpaper</div></a>
+					<a class="sectionlink" href="https://www.reddit.com/r/pokemongo"><div id="pokemongo" class="item">Pokemon Go</div></a>
+				</div>
+
+				<div id="dev" class="gloss secthead"><span>Dev Stuff</span></div>
+				<div id="devlist" class="section hidden">
+					<a class="sectionlink" href="http://www.w3schools.com/"><div id="w3schools" class="item">W3 Schools</div></a>
+					<a class="sectionlink" href="http://www.php.net/"><div id="phpnet" class="item">php.net</div></a>
+					<a class="sectionlink" href="http://stackoverflow.com/"><div id="stackoverflow" class="item">StackOverflow</div></a>
+					<a class="sectionlink" href="https://github.com/"><div id="github" class="item">GitHub</div></a>
+					<a class="sectionlink" href="http://www.color-hex.com/"><div id="colorhex" class="item">Color Hex</div></a>
+					<a class="sectionlink" href="http://regexr.com/"><div id="regexr" class="item">Regexr</div></a>
+					<a class="sectionlink" href="http://userstyles.org/"><div id="userstyles" class="item">Userstyles</div></a>
+
+				</div>
+
+				<div id="email" class="gloss secthead"><span>Email</span></div>
+				<div id="emaillist" class="section hidden">
+					<a class="sectionlink" href="http://outlook.com/"><div id="outlook" class="item">Outlook</div></a>
+					<a class="sectionlink" href="https://mail.aol.co.uk/"><div id="aol" class="item">AOL</div></a>
+					<a class="sectionlink" href="https://mail.yahoo.co.jp/"><div id="yahoojp" class="item">Yahoo JP</div></a>
+				</div>
+
+				<div id="shop" class="gloss secthead"><span>Shopping</span></div>
+				<div id="shoplist" class="section hidden">
+					<a class="sectionlink" href="http://amazon.co.uk/"><div id="amazon" class="item">Amazon</div></a>
+					<a class="sectionlink" href="http://www.ebay.co.uk/"><div id="ebay" class="item">Ebay</div></a>
+					<a class="sectionlink" href="https://www.game.co.uk/"><div id="game" class="item">GAME</div></a>
+					<a class="sectionlink" href="https://www.novatech.co.uk/"><div id="novatech" class="item">Novatech</div></a>
+					<a class="sectionlink" href="https://www.argos.co.uk/"><div id="argos" class="item">Argos</div></a>
+				</div>
+
+				<div id="storage" class="gloss secthead"><span>Storage</span></div>
+				<div id="storagelist" class="section hidden">
+					<a class="sectionlink" href="http://dropbox.com/"><div id="dropbox" class="item">Dropbox</div></a>
+					<a class="sectionlink" href="http://drive.google.com/"><div id="googledrive" class="item">Google Drive</div></a>
+					<a class="sectionlink" href="https://keep.google.com/u/0/"><div id="googlekeep" class="item">Google Keep</div></a>
+					<a class="sectionlink" href="https://onedrive.live.com/"><div id="onedrive" class="item">Onedrive</div></a>
+					<a class="sectionlink" href="https://mega.nz/"><div id="mega" class="item">MEGA</div></a>
+				</div>
+
+				<div id="firefox" class="gloss secthead"><span>Firefox</span></div>
+				<div id="firefoxlist" class="section hidden">
+					<a class="sectionlink" href="https://addons.mozilla.org/en-US/firefox/extensions/"><div id="firefoxextensions" class="item">Firefox Extensions</div></a>
+					<a class="sectionlink" href="https://addons.mozilla.org/en-US/firefox/themes/"><div id="firefoxthemes" class="item">Firefox Themes</div></a>
+				</div>
+
+				<div id="chrome" class="gloss secthead"><span>Chrome</span></div>
+				<div id="chromelist" class="section hidden">
+					<a class="sectionlink" href="https://chrome.google.com/webstore"><div id="chromewebstore" class="item">Chrome Web Store</div></a>
+				</div>
+
+				<div id="misc" class="gloss secthead"><span>Miscellaneous</span></div>
+				<div id="misclist" class="section hidden">
+					<a class="sectionlink" href="http://jisho.org/"><div id="jisho" class="item">Jisho</div></a>
+					<a class="sectionlink" href="http://beta.speedtest.net"><div id="speedtest" class="item">Speedtest</div></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="weather" class="gloss main">
+			<div id="weatherplace" class="glossheading gloss">Weather</div>
+			<div id="temperature" class="wtext">Currently Unavailable</div>
+			<div id="dayforcast" class="wtext"></div>
+		</div>
+
+		<div id="search" class="gloss main">
+			<div class="glossheading gloss">Search</div>
+			<input id="searchbox" type="text" name="q" value="" autocomplete="off" autofocus>
+			<div id="dropdown" class="main">A</div>
+		</div>
+
+		<div id="cc">aa</div>
+	</body>
+
+</html>
