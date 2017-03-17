@@ -1,14 +1,25 @@
 var regexurl = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
-
+var shiftDown = false;
 $(document).ready(function() {
+
 
 	$( "#searchbox" ).keydown(function( e ) {
 	    if (e.keyCode == 13) {
 	        setTimeout(clearBox, 1000);
 	    }
+
+	    if (e.keyCode == 16)
+	    {
+	    	shiftDown = true;
+	    }
 	});
 
 	$( "#searchbox" ).keyup(function( e ) {
+
+		if (e.keyCode == 16)
+	    {
+	    	shiftDown = false;
+	    }
 
 		//set up regex search for list
 
@@ -35,7 +46,7 @@ $(document).ready(function() {
 
             }
             
-            if(normal === true)
+            if(normal === true || shiftDown == true)
             {
 				if(regtest === true){
 					// var win = window.open("http://"+$('#searchbox').val(), '_blank');
