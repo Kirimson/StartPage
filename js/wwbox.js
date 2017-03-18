@@ -108,7 +108,7 @@ $(document).ready(function() {
 	                    var itemLink = $("#"+noSpace).parent().attr('href');
 
 	                   $('#dropdown').append("<a href='"+itemLink+"'><div class='gloss secthead'>"+items[i].innerHTML+"</div></a>");
-	                   
+	                   greeting();
 	                   if($('#dropdown').css('display') == "none")
 	                   {
 	                        $('#dropdown').css('display', 'block');
