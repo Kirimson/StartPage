@@ -1,8 +1,8 @@
 // Docs at http://simpleweatherjs.com
-function Weather() {
+function loadWeather(location, woid) {
   $.simpleWeather({
-    location: 'Birmingham, UK',
-    woeid: '',
+    location: location,
+    woeid: woid,
     unit: 'c',
     success: function(weather) {
       html =weather.temp + '&deg;' + weather.units.temp;
@@ -23,4 +23,8 @@ function Weather() {
   });
 };
 
-setTimeout(Weather, 1000);
+$(document).ready(function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+  });
+});
