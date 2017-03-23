@@ -18,6 +18,9 @@ function greeting() {
         sectheadhoverColor = "#333"
         itemhoverColor = "#444"
 
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
+
         $('.main').css("background-color", mainColor)
         $('.secthead').css("background-color", sectheadColor)
         $('.item').css("background-color", itemColor)
@@ -40,6 +43,9 @@ function greeting() {
         itemColor = "#354232"
         sectheadhoverColor = "#21332B"
         itemhoverColor = "#414B3F"
+
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
 
         $('.main').css("background-color", mainColor)
         $('.secthead').css("background-color", sectheadColor)
@@ -65,6 +71,9 @@ function greeting() {
         sectheadhoverColor = "#16222a"
         itemhoverColor = "#3c464c"
 
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
+
         $('.main').css("background-color", mainColor)
         $('.secthead').css("background-color", sectheadColor)
         $('.item').css("background-color", itemColor)
@@ -89,6 +98,9 @@ function greeting() {
         itemColor = "#4e4467"
         sectheadhoverColor = "#39324B"
         itemhoverColor = "#574C73"
+
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
 
         $('.main').css("background-color", mainColor)
         $('.secthead').css("background-color", sectheadColor)
