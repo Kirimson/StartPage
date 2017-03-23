@@ -237,6 +237,7 @@ input:focus{
 		right: 0;
 		width:90%;
 		padding-bottom: 2.5em;
+		margin: 0 auto;
 	}
 
 	.forcastbox{
