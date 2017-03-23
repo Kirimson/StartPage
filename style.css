@@ -205,3 +205,14 @@ input:focus{
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+@media only screen and (max-device-width: 480px) {
+	html{
+	background-image: url(img/afternoon.jpg);
+	background-size: cover;
+	font-family: "Calibri Light";
+	font-weight: lighter;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+}
