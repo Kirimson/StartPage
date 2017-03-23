@@ -207,12 +207,44 @@ input:focus{
 }
 
 @media only screen and (max-device-width: 480px) {
-	html{
-	background-image: url(img/afternoon.jpg);
-	background-size: cover;
-	font-family: "Calibri Light";
-	font-weight: lighter;
-	-moz-user-select: none;
-	-webkit-user-select: none;
+
+#links{
+	position: relative;
+	top: 5%;
+	left: 0;
+	right: 0;
+	width:100%;
 }
+
+#weather{
+	position: absolute;
+	top: 40%;
+	right:20%;
+	width: 25%;
+	height: 20%;
+	overflow-y: hidden;
+	padding: 1vh;
+}
+
+.forcastbox{
+	display: none;
+}
+
+#temperature{
+	font-size: 5vh;
+}
+
+#weather{
+	position: relative;
+	top:8%;
+	left:0;
+	right:0;
+	margin: 0 auto;
+	height: 10%;
+	width:90%;
+}
+
+#search{
+		display: none;
+	}
 }
