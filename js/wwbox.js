@@ -1,8 +1,16 @@
 var regexurl = /(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
 var shiftDown = false;
 var ctrlDown = false;
-$(document).ready(function() {
+var match = false;
+var selected = 0;
+var maxSelect;
 
+var late = "#333";
+var morning = "#21332B";
+var afternoon = "#16222a";
+var evening = "#39324B";
+
+$(document).ready(function() {
 
 	$( "#searchbox" ).keydown(function( e ) {
 	    if (e.keyCode == 13) {
@@ -17,7 +25,6 @@ $(document).ready(function() {
 	    {
 	    	ctrlDown = true;
 	    }
-
 	});
 
 	$( "#searchbox" ).keyup(function( e ) {
@@ -42,13 +49,14 @@ $(document).ready(function() {
 
 			var regtest = regexurl.test($('#searchbox').val());
 
-			var found = false;
+			found = false;
 			for(i=0; i < items.length;i++)
             {
             	if(items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1 && found === false && shiftDown == false)
                 {
                 	normal = false;
-                	var noSpace = items[i].innerHTML.toLowerCase().replace(/\W/g, '');
+                	// var noSpace = items[i].innerHTML.toLowerCase().replace(/\W/g, '');
+                	var noSpace = "item"+selected;
             		var itemLink = $("#"+noSpace).parent().attr('href');
 
             		if(ctrlDown == true)
@@ -97,31 +105,45 @@ $(document).ready(function() {
 	            $('#dropdown').html("");
 	            $('#dropdown').css('display', 'none');
 
-	            var match = false;
+	            match = false;
 	            var k = 0;
 	            for(i=0; i < items.length;i++)
 	            {
 	                if(k < 10 && items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1)
 	                {
 	                	k++;
+	                	maxSelect = k;
 	                    var noSpace = items[i].innerHTML.toLowerCase().replace(/\W/g, '');
 	                    var itemLink = $("#"+noSpace).parent().attr('href');
 
-	                   $('#dropdown').append("<a href='"+itemLink+"'><div class='gloss secthead'>"+items[i].innerHTML+"</div></a>");
-	                   greeting();
-	                   if($('#dropdown').css('display') == "none")
-	                   {
+						$('#dropdown').append("<a href='"+itemLink+"'><div id='item"+k+"'' class='gloss secthead'>"+items[i].innerHTML+"</div></a>");
+						greeting();
+	                   	if($('#dropdown').css('display') == "none")
+	                   	{
 	                        $('#dropdown').css('display', 'block');
 
-	                   }
-	                   match = true;
+	                   	}
+	                   	match = true;
 	                }
 	            }
-	            
+
+	            if(match && selected == 0)
+	            {
+	            	selected = 1;
+	            	setHoverCol();
+	            }
+
+	            if(selected > maxSelect)
+	            {
+	            	selected = 1;
+	            	setHoverCol();
+	            }
+
 	            if(!match)
 	            {
 	                $('#dropdown').html("");
 	                $('#dropdown').css('display', 'none');
+	                selected = 0;
 	            }
 
 	        }
@@ -129,10 +151,42 @@ $(document).ready(function() {
 	        {
 	            $('#dropdown').html("");
 	            $('#dropdown').css('display', 'none');
+	            match = false;
+	            selected = 0;
 	        }
 		}
+
+		//up/down
+	    if(e.keyCode == 38 || e.keyCode == 40)
+	    {
+	    	
+	    	if(match)
+	    	{
+	    		if(selected < maxSelect && e.keyCode == 40)
+	    		{
+	    			selected++;
+	    		}
+	    		
+	    		if(selected > 1  && e.keyCode == 38)
+	    		{
+	    			selected--;
+	    		}
+	 			setHoverCol();
+	    	}
+	    }
+
 	});
 });
+
+function setHoverCol()
+{
+	var currTime = timeCheck();
+
+	if(currTime == 1){$('#item'+selected).css('background-color', late);}
+	if(currTime == 2){$('#item'+selected).css('background-color', morning);}
+	if(currTime == 3){$('#item'+selected).css('background-color', afternoon);}
+	if(currTime == 4){$('#item'+selected).css('background-color', evening);}
+}
 
 function clearBox(){
 	$('#searchbox').val('');
@@ -144,3 +198,10 @@ String.prototype.regexIndexOf = function(regex, startpos) {
     var indexOf = this.substring(startpos || 0).search(regex);
     return (indexOf >= 0) ? (indexOf + (startpos || 0)) : indexOf;
 }
+
+window.addEventListener("keydown", function(e) {
+    // space and arrow keys
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);

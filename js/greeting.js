@@ -2,12 +2,28 @@ var count = 0;
 var time;
 var mainColor, sectheadColor, itemColor, sectheadhoverColor, itemhoverColor;
 
+function timeCheck()
+{
+    var date = new Date();
+    var ho = date.getHours();
+    
+    if(ho >= 1 && ho <= 8){return 1;}
+
+    if(ho >= 9 && ho <= 11){return 2;}
+
+    if(ho >= 12 && ho <= 17){return 3;}
+
+    if(ho >= 18 || ho ==0){return 4;}
+};
+
 function greeting() {
     var d = new Date();
     var h = d.getHours();
     var m;
 
-    if(h >= 1 && h <= 8){
+    var t = timeCheck();
+
+    if(t == 1){
         
         m = "It's pretty late..."
         if(time != 0){$('html').css("background-image", "url(img/late.jpg)");}
@@ -33,7 +49,7 @@ function greeting() {
         });
         time = 0;
     }
-    if(h >= 9 && h <= 11){
+    if(t == 2){
         
         m = "Why are you up?"
         if(time != 1){$('html').css("background-image", "url(img/morning.jpg)");}
@@ -60,7 +76,7 @@ function greeting() {
         time = 1;
     }
 
-    if(h >= 12 && h <= 17){
+    if(t == 3){
         
         m = "Good Afternoon"
         if(time != 2){$('html').css("background-image", "url(img/afternoon.jpg)");}
@@ -88,7 +104,7 @@ function greeting() {
         time = 2;
     }
 
-    if(h >= 18 || h==0){
+    if(t == 4){
         
         m = "Good Evening"
         if(time != 3){$('html').css("background-image", "url(img/evening.jpg)");}
@@ -116,10 +132,10 @@ function greeting() {
     }
 
     $('#hello').html(m);
-    $('#cc').html(count);
     count = count + 1;
     var t = setTimeout(greeting, 60000);
 };
+
 $(document).ready(function() {
     setTimeout(greeting, 1);
 });

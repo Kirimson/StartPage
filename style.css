@@ -72,7 +72,7 @@ input:focus{
 	transition: background-color 0.1s linear;
 	background-color: #19262F;
 }
-.secthead:hover{
+.secthead:hover, .secthead:focus{
 	cursor: pointer;
 	background-color: #16222a;
 }
