@@ -2,7 +2,7 @@
 html{
 	background-image: url(img/afternoon.jpg);
 	background-size: cover;
-	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light";
+	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell";
 	font-weight: lighter;
 	-moz-user-select: none;
 	-webkit-user-select: none;
@@ -17,7 +17,7 @@ a{
 input{
 	background-color: transparent;
 	border: none;
-	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light";
+	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell";
 	font-size: 4vh;
 	text-align: center;
 	color: #eee;
@@ -49,7 +49,7 @@ input:focus{
 	width: 100%;
 	min-height: 3vh;
 	font-size: 2.25vh;
-	font-family: "Eras ITC", "Eras Medium ITC", "Calibri Light";
+	font-family: "Eras ITC", "Eras Medium ITC", "Calibri Light", "Cantarell";
 	font-weight: medium;
 	color: #eee;
 	transition: background-color 0.1s linear;
