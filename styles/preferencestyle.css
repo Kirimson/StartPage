@@ -32,7 +32,7 @@
 }
 
 .settingsarea{
-	width: 40%;
+	width: 80%;
 	height: 60%;
 }
 
@@ -40,4 +40,26 @@
 	width: 80%;
 	margin: auto;
 	padding-top: 1em;
+}
+
+#settinglinks{
+	display: block;
+	position: relative;
+	height: 60%;
+	overflow: scroll;
+	text-align: left;
+	float: top;
+	margin: auto;
+	color: white;
+	border: none;
+}
+
+#settinglinks:focus{
+	outline: none;
+}
+
+#settingssubmit{
+	font-size: 14pt;
+	display: block;
+	margin: auto;
 }

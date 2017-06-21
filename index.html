@@ -49,25 +49,22 @@
 		<div id="settingsmain">
 			<div id="settingsbar">Settings<span id="settingsclose">&times;</span></div>
 
-			<span>Yo, so... Bear with me here, I'm warning you, this is stupid. just follow the instructions and you'll be golden.</span>
+			<span>Yo, settings are sort of simple now. Follow the rules to create your own custom StartPage</span>
 			<br><br>
 			<div>
-				<div>Rules for titles:</div>
-				<div>On every new line for titles, have a new title</div>
-				<div>Rules for links:</div>
-				<div>Alternate lines, link title, link url, for your first main title (the one on the left)</div>
-				<div>When you've reached the end of the "block" so all the links for the first title have a single "\" on the next line</div>
-				<div>Repeat for all other titles. BE SURE TO END IT WITH A "\"</div>
+				<div>1. Use the "\" prefix to create a title, then the name of the title. such as: "\Media"</div>
+				<div>2. After the title on a new line add the link name on one line, and the url on the next</div>
+				<div>3. Repeat until you've put all links you want</div>
+				<div>4. Repeat from 1 until you've added all sections. Last line has to be a single "\"</div>
 			</div>
 
 			<div id="settingsformcontain">
 				<form id="settingsform">
-					<textarea class="settingsarea" name="titles" id="settingtitles" placeholder="Enter titles"></textarea>
-					<textarea class="settingsarea" name="links" id="settinglinks" form="settingsform" placeholder="Enter links"></textarea>
-					<input type="button" name="submitbutton" id="settingssubmit" value="booooop"/>
+					<textarea class="settingsarea" name="links" id="settinglinks" form="settingsform" placeholder="Enter links. Example:\n\Social\nFacebook\nhttps://facebook.com\nTwitter\nhttps://twitter.com\n\Media\nYoutube\nhttps://www.youtube.com"></textarea>
+					<input type="button" name="submitbutton" id="settingssubmit" value="Create"/>
 				</form>
 			</div>
-
+			<div>Note: These settings are stored in a cookie. clicking "Create" means you accept all this cookie nonsene.<br>Cookies are only used for personalisation, nothing more, nothing less. I'm not that fancy<br>(Also, cookies can only store 4096 bytes (4kb). Using link shorterners may be a good idea if you have a lot of links like I do)</div>
 		</div>
 
 		<script src="js/preferencewindow.js"></script>
