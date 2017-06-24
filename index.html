@@ -47,24 +47,16 @@
 		<div id="settings">Settings</div>
 		
 		<div id="settingsmain">
-			<div id="settingsbar">Settings<span id="settingsclose">&times;</span></div>
+			<div class="glossheading gloss">Settings<span id="settingsclose">&times;</span></div>
 
-			<span>Yo, settings are sort of simple now. Follow the rules to create your own custom StartPage</span>
-			<br><br>
-			<div>
-				<div>1. Use the "\" prefix to create a title, then the name of the title. such as: "\Media"</div>
-				<div>2. After the title on a new line add the link name on one line, and the url on the next</div>
-				<div>3. Repeat until you've put all links you want</div>
-				<div>4. Repeat from 1 until you've added all sections. Last line has to be a single "\"</div>
-			</div>
-
-			<div id="settingsformcontain">
+			<div id="linksetting" class="secthead gloss">Links</div>
+			<div id="linksettinglist" class="item>
 				<form id="settingsform">
-					<textarea class="settingsarea" name="links" id="settinglinks" form="settingsform" placeholder="Enter links. Example:\n\Social\nFacebook\nhttps://facebook.com\nTwitter\nhttps://twitter.com\n\Media\nYoutube\nhttps://www.youtube.com"></textarea>
+					<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="settingsarea" name="links" id="settinglinks" form="settingsform" placeholder="Enter links. Example:\n\Social\nFacebook\nhttps://facebook.com\nTwitter\nhttps://twitter.com\n\Media\nYoutube\nhttps://www.youtube.com\n\"></textarea>
 					<input type="button" name="submitbutton" id="settingssubmit" value="Create"/>
 				</form>
 			</div>
-			<div>Note: These settings are stored in a cookie. clicking "Create" means you accept all this cookie nonsene.<br>Cookies are only used for personalisation, nothing more, nothing less. I'm not that fancy<br>(Also, cookies can only store 4096 bytes (4kb). Using link shorterners may be a good idea if you have a lot of links like I do)</div>
+
 		</div>
 
 		<script src="js/preferencewindow.js"></script>

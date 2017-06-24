@@ -39,26 +39,29 @@ $(document).ready(function() {
 	    }
 
 		//set up regex search for list
-
 		var temp = $("#searchbox").val().toLowerCase().replace(/\W/g, '.*');
-
 		var regexdSearch = new RegExp('.*'+temp+'.*');
+
+		//if enter
 		if (e.keyCode == 13) {
 			var normal = true;
+			//get all items
 			var items = $("#linkcontain").children(".section").children().children(".item");
 
 			var regtest = regexurl.test($('#searchbox').val());
 
+			//loop through all list items, searching for an item in the list that matches 
 			found = false;
 			for(i=0; i < items.length;i++)
             {
+            	//check if conditions are met. If shift is held, item url is not used
             	if(items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1 && found === false && shiftDown == false)
                 {
                 	normal = false;
-                	// var noSpace = items[i].innerHTML.toLowerCase().replace(/\W/g, '');
                 	var noSpace = "item"+selected;
             		var itemLink = $("#"+noSpace).parent().attr('href');
 
+            		//go to item link
             		if(ctrlDown == true)
 					{
 						clearBox();
@@ -66,7 +69,6 @@ $(document).ready(function() {
 					}
 					else
 					{
-
 						window.location.href = itemLink;
 					}
 
@@ -74,8 +76,10 @@ $(document).ready(function() {
            		}
             }
             
+            //if doing a normal search
             if(normal === true || shiftDown == true)
             {
+            	//check if valid url
 				if(regtest === true){
 					if(ctrlDown == true)
 					{
@@ -86,6 +90,7 @@ $(document).ready(function() {
 						window.location.href = "http://"+$('#searchbox').val();
 					}
 				} else {
+					//google search
 					if(ctrlDown == true)
 					{
 						window.open("https://www.google.co.uk/search?q="+$('#searchbox').val())
@@ -99,16 +104,22 @@ $(document).ready(function() {
 		}
 		else
 		{
+			//get all items
 			var items = $("#linkcontain").children(".section").children().children(".item");
+
+			//if seatchbox not empty
 	        if(!$("#searchbox").val() == "")
 	        {
 	            $('#dropdown').html("");
 	            $('#dropdown').css('display', 'none');
 
+
+	            //loop through all items
 	            match = false;
 	            var k = 0;
 	            for(i=0; i < items.length;i++)
 	            {
+	            	//if the regexed search equals one of the items, add to the dropdown
 	                if(k < 10 && items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1)
 	                {
 	                	k++;
@@ -201,7 +212,11 @@ String.prototype.regexIndexOf = function(regex, startpos) {
 
 window.addEventListener("keydown", function(e) {
     // space and arrow keys
-    if([38, 40].indexOf(e.keyCode) > -1) {
-        e.preventDefault();
+    if($('#searchbox').is(':focus'))
+    {
+    	if([38, 40].indexOf(e.keyCode) > -1) {
+	        e.preventDefault();
+	    }
     }
+    
 }, false);
