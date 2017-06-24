@@ -1,6 +1,7 @@
 try{
 	//try and get data from local storage
 	var LinkData = JSON.parse(localStorage.getItem("personal-links"));
+	var test = LinkData.titles;
 } catch(err) {
 	try{
 		//if the cookie from old version is presnet, use thad
