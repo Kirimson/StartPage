@@ -17,8 +17,9 @@ $(document).ready(function() {
 
     $(document).mouseup(function (e)
 	{
-		var container = $("#links");
-	    if (!container.is(e.target) && container.has(e.target).length === 0){
+        var linkscontainer = $("#links");
+		var settingscontainer = $("#settingsmain");
+	    if (!linkscontainer.is(e.target) && !settingscontainer.is(e.target) && linkscontainer.has(e.target).length === 0  && settingscontainer.has(e.target).length === 0){
 	    	$('.section').slideUp(speed);
 	    }
 	});

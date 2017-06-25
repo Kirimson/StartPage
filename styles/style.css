@@ -14,7 +14,7 @@ a{
 	outline: 0;
 }
 
-#searchbox{
+#searchbox, .bginput{
 	background-color: transparent;
 	border: none;
 	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
@@ -55,7 +55,8 @@ a{
 	transition: background-color 0.1s linear;
 	background-color: #2F3B43;
 }
-.item:hover{
+
+.item:not(.notransition):hover{
 	background-color: #3c464c;
 }
 
@@ -64,7 +65,6 @@ a{
 	position: relative;
 	width:100%;
 	height: 4.15vh;
-	
 	font-size: 3.15vh;
 	color: #ccc;
 	border-bottom: 1px solid;
@@ -80,7 +80,6 @@ a{
 .section{
 	position: relative;
 }
-
 
 .hidden{
 	display: none;
@@ -112,7 +111,7 @@ a{
 
 #linkcontain{
 	height:91%;
-	width:102%;
+	margin-right: -17px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -199,6 +198,20 @@ a{
 	cursor: pointer;
 }
 
+#github{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-size: 12pt;
+	color:white;
+	opacity: 0;
+}
+
+#github:hover{
+	opacity: 1;
+	cursor: pointer;
+}
+
 ::-moz-scrollbar { 
     display: none; 
 }
@@ -264,5 +277,12 @@ a{
 
 	#search{
 		display: none;
+	}
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {  
+/* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */  
+	#linkcontain {
+		margin-right: 0;
 	}
 }

@@ -9,6 +9,14 @@
 	opacity: 0.9;
 	color: white;
 	text-align: center;
+	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+#settingscontain{
+	height: 91%;
+	overflow-y: scroll;
+	margin-right: -17px;
 }
 
 #settingsclose{
@@ -24,28 +32,23 @@
 	cursor: pointer;
 }
 
-.settingsarea{
-	width: 80%;
-	height: 60%;
-}
-
 #settingsform{
-	width: 80%;
 	margin: auto;
 	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 #settinglinks{
 	display: block;
 	position: relative;
-	width: 80%;
+	width: 64%;
 	height: 70%;
-	overflow: scroll;
+	overflow-y: scroll;
 	text-align: left;
-	float: top;
 	margin: auto;
 	color: white;
 	border: none; 
+	resize: none;
 }
 
 #settinglinks:focus{
@@ -59,12 +62,12 @@
 }
 
 #settingssubmit{
+	position: absolute;
+	bottom: 0;
 	font-size: 14pt;
 	display: block;
 	margin: auto;
-	margin-top: 0.75em; 
-	margin-bottom: 0.75em; 
-	padding: 0.25em;
+	margin-top: 0.75em;
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 	background-color: red;
@@ -75,4 +78,23 @@
 
 #settingssubmit{
 	cursor: pointer;
+}
+
+.instructions{
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.bginput{
+	font-size: 16pt;
+	text-align: left;
+	margin-bottom: 1em;
+	width: 64%;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {  
+/* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */  
+	#settingscontain {
+		margin-right: 0;
+	}
 }

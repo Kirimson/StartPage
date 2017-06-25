@@ -2,6 +2,15 @@ var count = 0;
 var time;
 var mainColor, sectheadColor, itemColor, sectheadhoverColor, itemhoverColor;
 
+try{
+    //try and get data from local storage
+    var backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
+    var test = backgrounds[0];
+} catch(err) {
+    console.log("caught");
+    backgrounds = ["url(img/late.jpg)", "url(img/morning.jpg)", "url(img/afternoon.jpg)", "url(img/evening.jpg)"];
+}
+
 function timeCheck()
 {
     var date = new Date();
@@ -26,7 +35,7 @@ function greeting() {
     if(t == 1){
         
         m = "It's pretty late..."
-        if(time != 0){$('html').css("background-image", "url(img/late.jpg)");}
+        if(time != 0){$('html').css("background-image", backgrounds[0]);}
 
         mainColor = "#333"
         sectheadColor = "#444"
@@ -42,17 +51,24 @@ function greeting() {
         $('.item').css("background-color", itemColor)
 
         $(".secthead").hover(function(e) {
-            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            }
         });
+
         $(".item").hover(function(e) {
-             $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                 $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            }
         });
         time = 0;
     }
     if(t == 2){
         
         m = "Why are you up?"
-        if(time != 1){$('html').css("background-image", "url(img/morning.jpg)");}
+        if(time != 1){$('html').css("background-image", backgrounds[1]);}
 
         mainColor = "#1F2E1C"
         sectheadColor = "#253930"
@@ -79,7 +95,7 @@ function greeting() {
     if(t == 3){
         
         m = "Good Afternoon"
-        if(time != 2){$('html').css("background-image", "url(img/afternoon.jpg)");}
+        if(time != 2){$('html').css("background-image", backgrounds[2]);}
 
         mainColor = "#151A1D"
         sectheadColor = "#19262F"
@@ -107,7 +123,7 @@ function greeting() {
     if(t == 4){
         
         m = "Good Evening"
-        if(time != 3){$('html').css("background-image", "url(img/evening.jpg)");}
+        if(time != 3){$('html').css("background-image", backgrounds[3]);}
 
         mainColor = "#2b2241"
         sectheadColor = "#403854"

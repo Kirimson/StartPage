@@ -2,29 +2,26 @@ var clicked = false;
 
 var late = "#333";
 var darkLate = "#444";
-var darkHover = "555"
+var darkHover = "555";
 
 var morning = "#1F2E1C";
 var darkMorning = "#253930"
-var morningHover = "#21332B"
+var morningHover = "#21332B";
 
 var afternoon = "#151A1D";
 var darkAfternoon = "#19262F";
-var afternoonHover = "#16222a"
+var afternoonHover = "#16222a";
 
 var evening = "#2b2241";
 var darkEvening = "#403854";
-var eveningHover = "#39324B"
+var eveningHover = "#39324B";
 
-//Make placeholder in html have new lines
-var textAreas = document.getElementsByTagName('textarea');
-
-Array.prototype.forEach.call(textAreas, function(elem) {
-    elem.placeholder = elem.placeholder.replace(/\\n/g, '\n');
-});
+var bgdefaults = ["url(img/late.jpg)", "url(img/morning.jpg)", "url(img/afternoon.jpg)", "url(img/evening.jpg)"];
+var times = ["late", "morning", "afternoon", "evening"];
 
 try{
 	var LinkData = JSON.parse(localStorage.getItem("personal-links"));
+	var Backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
 } catch(err) {
 	console.log(err.message);
 }
@@ -32,46 +29,6 @@ try{
 function toggleSettings(){
 	if(!clicked){
 		$('#settingsmain').css('display', 'block');
-
-		var currTime = timeCheck();
-
-		//colors
-		if(currTime == 1){
-			$('#settingsmain').css('background-color', late);
-			$('#settinglinks').css('background-color', darkLate);
-			$('#settingssubmit').css('background-color', darkLate);
-
-			$("#settingssubmit").hover(function(e) {
-	            $(this).css("background-color",e.type === "mouseenter"?lateHover:darkLate)
-	        });
-		}
-		if(currTime == 2){
-			$('#settingsmain').css('background-color', morning);
-			$('#settinglinks').css('background-color', darkMorning);
-			$('#settingssubmit').css('background-color', darkMorning);
-
-			$("#settingssubmit").hover(function(e) {
-	            $(this).css("background-color",e.type === "mouseenter"?morningHover:darkMorning)
-	        });
-		}
-		if(currTime == 3){
-			$('#settingsmain').css('background-color', afternoon);
-			$('#settinglinks').css('background-color', darkAfternoon);
-			$('#settingssubmit').css('background-color', darkAfternoon);
-
-			$("#settingssubmit").hover(function(e) {
-	            $(this).css("background-color",e.type === "mouseenter"?afternoonHover:darkAfternoon)
-	        });
-		}
-		if(currTime == 4){
-			$('#settingsmain').css('background-color', evening);
-			$('#settinglinks').css('background-color', darkEvening);
-			$('#settingssubmit').css('background-color', darkEvening);
-
-			$("#settingssubmit").hover(function(e) {
-	            $(this).css("background-color",e.type === "mouseenter"?eveningHover:darkEvening)
-	        });
-		}
 	}
 	else
 	{
@@ -98,7 +55,7 @@ $( "#settinglinks" ).keydown(function( e ) {
 	});
 
 //if no linkData show setting window
-if(typeof LinkData == 'undefined')
+if(LinkData == null)
 {
 	toggleSettings();
 }
@@ -127,6 +84,31 @@ else
 	});
 }
 
+//backgrounds
+if(Backgrounds != null)
+{
+	jQuery.each(LinkData.links, function(index, el) {
+		if(Backgrounds[index] == bgdefaults[index])
+		{
+			$('#'+times[index]+'bg').val('Default');
+		}
+		else
+		{
+
+			var urlless = Backgrounds[index].substr(4);
+			urlless = urlless.slice(0, -1);
+			$('#'+times[index]+'bg').val(urlless);
+		}
+	});
+}
+else
+{
+	for(var i = 0; i < 4; i++)
+	{
+		$('#'+times[i]+'bg').val("Default");
+	}
+}
+
 //clicking settings toggles
 $('#settings').click(function(){
 	toggleSettings()
@@ -138,22 +120,17 @@ $('#settingsclose').click(function(){
 });
 
 $('#settingssubmit').click(function(){
+
 	//object to be jsonified
 	var LinkData = { }
-
 	//titles array for object
 	var titles = [];
-
 	//links array for object
 	var links = [];
-
 	//array of how links textarea is formatted
 	var templinks = $('#settinglinks').val().split('\n');
-
 	templinks = templinks.filter(function(v){return v!==''});
-
 	var linklength = templinks.length;
-
 	console.log(templinks);
 
 	//if the last line is not a \ push a \
@@ -161,11 +138,7 @@ $('#settingssubmit').click(function(){
 	{
 		templinks.push("\\");
 		linklength++;
-		console.log("pushed");
-
 	}
-
-	console.log(templinks);
 
 	//array of each title links
 	var linksforarray = [];
@@ -212,5 +185,22 @@ $('#settingssubmit').click(function(){
 	console.log(LinkData);
 
 	localStorage.setItem("personal-links", JSON.stringify(LinkData));
+
+	var newBackgrounds = [];
+	//backgrounds
+	for(var i = 0; i < 4; i++)
+	{
+		if($('#'+times[i]+'bg').val() == "Default" || $('#'+times[i]+'bg').val() == "")
+		{
+			newBackgrounds.push(bgdefaults[i]);
+		}
+		else
+		{
+			newBackgrounds.push('url('+$('#'+times[i]+'bg').val()+')');
+		}
+	}
+
+	localStorage.setItem("personal-bg", JSON.stringify(newBackgrounds));
+
 	location.reload();
 });

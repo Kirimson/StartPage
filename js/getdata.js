@@ -20,7 +20,7 @@ try{
 }
 
 //build html using LinkData
-if(typeof LinkData != 'undefined')
+if(LinkData != null)
 {
 	for(var i = 0; i < LinkData.titles.length; i++)
 	{

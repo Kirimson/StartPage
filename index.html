@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link rel="stylesheet" type="text/css" href="styles/preferencestyle.css">
 		<link rel="icon" type="image/png" href="favicon.ico">
@@ -46,16 +47,48 @@
 
 		<div id="settings">Settings</div>
 		
-		<div id="settingsmain">
-			<div class="glossheading gloss">Settings<span id="settingsclose">&times;</span></div>
+		<div id="github">
+			<a href="https://github.com/Kirimson/StartPage" target="_blank">Github</a>
+			<span>&nbsp;</span>
+			<a href="https://github.com/Kirimson/StartPage/issues/new" target="_blank">Report an Isssue</a>
+		</div>
 
-			<div id="linksetting" class="secthead gloss">Links</div>
-			<div id="linksettinglist" class="item>
-				<form id="settingsform">
-					<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="settingsarea" name="links" id="settinglinks" form="settingsform" placeholder="Enter links. Example:\n\Social\nFacebook\nhttps://facebook.com\nTwitter\nhttps://twitter.com\n\Media\nYoutube\nhttps://www.youtube.com\n\"></textarea>
-					<input type="button" name="submitbutton" id="settingssubmit" value="Create"/>
-				</form>
+		<div id="settingsmain" class="main">
+			<div class="glossheading gloss">Settings<span id="settingsclose">&times;</span></div>
+			<div id="settingscontain">
+
+				<div id="linksetting" class="secthead gloss">Links</div>
+				<div id="linksettinglist" class="section item hidden nohover">
+
+					<div class="instructions">
+						<span>All titles start with a "\". Following the titles, on a new line, create your links.<br>Links take up two lines. First line is link title, second is the URL<br>Any blank lines are ignored.</span>
+					</div>
+
+					<form id="settingsform">
+						<textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="settingsarea main" name="links" id="settinglinks" form="settingsform" placeholder="Enter links:"></textarea>
+					</form>
+				</div>
+
+				<div id="bgsetting" class="secthead gloss">Backgrounds</div>
+				<div id="bgsettinglist" class="section item hidden nohover">
+
+					<div class="instructions">
+						<span>Customise the background images, if you don't like the defaults. Paste a link to the image you want to use in the boxes below.<br>Type "default" or leave blank if you want the default image for that time of day</span>
+					</div>
+
+					<div>Morning</div>
+					<input type="text" class="bginput main" id="morningbg">
+					<div>Afternoon</div>
+					<input type="text" class="bginput main" id="afternoonbg">
+					<div>Evening</div>
+					<input type="text" class="bginput main" id="eveningbg">
+					<div>Late</div>
+					<input type="text" class="bginput main" id="latebg">
+					
+				</div>
 			</div>
+
+			<input type="button" name="submitbutton" class="item" id="settingssubmit" value="Update Settings"/>
 
 		</div>
 
