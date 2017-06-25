@@ -62,7 +62,7 @@
 #settingssubmit{
 	position: absolute;
 	bottom: 0;
-	font-size: 14pt;
+	font-size: 2vh;
 	display: block;
 	margin: auto;
 	margin-top: 0.75em;
@@ -89,12 +89,12 @@
 	width: 64%;
 }
 
-#themename{
+.themename{
 	display: inline-block;
 	min-width: 8em;
 }
 
-#downtheme:hover, #uptheme:hover {
+.downtheme:hover, .uptheme:hover {
 	cursor: pointer;
 }
 

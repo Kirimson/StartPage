@@ -7,6 +7,15 @@ var coloursDef = [
         ["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c"],
         ["#2b2241", "#403854", "#4e4467", "#39324B", "#574C73"]
     ];
+
+var customText = [];
+var textDef = [
+        ["It's pretty late...", "What we doing now?"],
+        ["Why are you up?", "What we doing now?"],
+        ["Good Afternoon", "What we doing now?"],
+        ["Good Evening", "What we doing now?"]
+    ];
+
 var customColors;
 
 //try and get custom colours
@@ -18,10 +27,19 @@ try{
     customColors = coloursDef;
 }
 
+//try and get custom text
+try{
+    customText = JSON.parse(localStorage.getItem("personal-text"));
+    var test = customText[0];
+} catch(err) {
+    console.log(err.message);
+    customText = textDef;
+}
+
 var mainColor, sectheadColor, itemColor, sectheadhoverColor, itemhoverColor;
 
+//try and get backgrounds from local storage
 try{
-    //try and get data from local storage
     var backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
     var test = backgrounds[0];
 } catch(err) {
@@ -52,7 +70,8 @@ function greeting() {
 
     if(t == 1){
         
-        m = "It's pretty late..."
+        msg = customText[0][0];
+        doingmsg = customText[0][1];
         if(time != 0){$('html').css("background-image", backgrounds[0]);}
 
         mainColor = customColors[0][0];
@@ -89,7 +108,8 @@ function greeting() {
     }
     if(t == 2){
         
-        m = "Why are you up?"
+        msg = customText[1][0];
+        doingmsg = customText[1][1];
         if(time != 1){$('html').css("background-image", backgrounds[1]);}
 
         mainColor = customColors[1][0]
@@ -126,7 +146,8 @@ function greeting() {
 
     if(t == 3){
         
-        m = "Good Afternoon"
+        msg = customText[2][0];
+        doingmsg = customText[2][1];
         if(time != 2){$('html').css("background-image", backgrounds[2]);}
 
         mainColor = customColors[2][0]
@@ -164,7 +185,8 @@ function greeting() {
 
     if(t == 4){
         
-        m = "Good Evening"
+        msg = customText[3][0];
+        doingmsg = customText[3][1];
         if(time != 3){$('html').css("background-image", backgrounds[3]);}
 
         mainColor = customColors[3][0]
@@ -199,7 +221,8 @@ function greeting() {
         time = 3;
     }
 
-    $('#hello').html(m);
+    $('#hello').html(msg);
+    $('#whatwedoing').html(doingmsg);
     count = count + 1;
     var t = setTimeout(greeting, 60000);
 };

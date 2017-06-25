@@ -11,6 +11,15 @@ var colorsDef = [
 	];
 var colors = [];
 
+var TextArr = [];
+var textDef = [
+	["It's pretty late...", "What we doing now?"],
+	["Why are you up?", "What we doing now?"],
+	["Good Afternoon", "What we doing now?"],
+	["Good Evening", "What we doing now?"]
+]
+
+//try and get custom backgrounds and links
 try{
 	var LinkData = JSON.parse(localStorage.getItem("personal-links"));
 	var Backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
@@ -27,10 +36,20 @@ try{
 	colors = colorsDef;
 }
 
+//try and get text
+try{
+	TextArr = JSON.parse(localStorage.getItem("personal-text"));
+	var test = TextArr[0];
+}catch(err){
+	console.log(err.message);
+	TextArr = textDef;
+}
+
 function toggleSettings(){
 	if(!clicked){
 		$('#settingsmain').css('display', 'block');
-		getcolorvals()
+		getcolorvals();
+		gettextvals();
 	}
 	else
 	{
@@ -110,111 +129,8 @@ else
 	}
 }
 
-//colours
-var selectedtheme = 1;
-updatefakecol();
-
-function updatefakecol(){
-
-	switch(selectedtheme)
-	{
-		case 0: $('#themename').html("Theme: Late");break;
-		case 1: $('#themename').html("Theme: Morning");break;
-		case 2: $('#themename').html("Theme: Afternoon");break;
-		case 3: $('#themename').html("Theme: Evening");break;
-	}
-
-	$('#fakemain').css("background-color", colors[selectedtheme][0]);
-	$('#fakesecthead').css("background-color", colors[selectedtheme][1]);
-	$('#fakeitem').css("background-color", colors[selectedtheme][2]);
-	$('#fakemain').css("color", colors[selectedtheme][5]);
-
-
-	$("#fakesecthead").hover(function(e) {
-        if(!$(this).hasClass('nohover'))
-        {
-            $(this).css("background-color",e.type === "mouseenter"?colors[selectedtheme][3]:colors[selectedtheme][1])
-        }
-    });
-    $("#fakeitem").hover(function(e) {
-        if(!$(this).hasClass('nohover'))
-        {
-            $(this).css("background-color",e.type === "mouseenter"?colors[selectedtheme][4]:colors[selectedtheme][2])
-        }
-    });
-}
-
-//edit cols
-$('#maincol').keyup(function(e){
-	colors[selectedtheme][0] = $('#maincol').val();
-	updatefakecol();
-});
-$('#sectcol').keyup(function(e){
-	colors[selectedtheme][1] = $('#sectcol').val();
-	updatefakecol();
-});
-$('#itemcol').keyup(function(e){
-	colors[selectedtheme][2] = $('#itemcol').val();
-	updatefakecol();
-});
-$('#secthovercol').keyup(function(e){
-	colors[selectedtheme][3] = $('#secthovercol').val();
-	updatefakecol();
-});
-$('#itemhovercol').keyup(function(e){
-	colors[selectedtheme][4] = $('#itemhovercol').val();
-	updatefakecol();
-});
-$('#textcol').keyup(function(e){
-	colors[selectedtheme][5] = $('#textcol').val();
-	updatefakecol();
-});
-
-//reset colors
-$('#mainreset').click(function(event) {
-	colors[selectedtheme][0] = colorsDef[selectedtheme][0];
-	$('#maincol').val(colorsDef[selectedtheme][0]);
-	updatefakecol();
-});
-$('#sectreset').click(function(event) {
-	colors[selectedtheme][1] = colorsDef[selectedtheme][1];
-	$('#sectcol').val(colorsDef[selectedtheme][1]);
-	updatefakecol();
-});
-$('#itemreset').click(function(event) {
-	colors[selectedtheme][2] = colorsDef[selectedtheme][2];
-	$('#itemcol').val(colorsDef[selectedtheme][2]);
-	updatefakecol();
-});
-$('#secthoverreset').click(function(event) {
-	colors[selectedtheme][3] = colorsDef[selectedtheme][3];
-	$('#secthovercol').val(colorsDef[selectedtheme][3]);
-	updatefakecol();
-});
-$('#itemhoverreset').click(function(event) {
-	colors[selectedtheme][4] = colorsDef[selectedtheme][4];
-	$('#itemhovercol').val(colorsDef[selectedtheme][4]);
-	updatefakecol();
-});
-$('#textreset').click(function(event) {
-	colors[selectedtheme][5] = colorsDef[selectedtheme][5];
-	$('#textcol').val(colorsDef[selectedtheme][5]);
-	console.log(colors);
-	updatefakecol();
-});
-
-function getcolorvals(){
-	console.log(colors);
-	$('#maincol').val(colors[selectedtheme][0]);
-	$('#sectcol').val(colors[selectedtheme][1]);
-	$('#itemcol').val(colors[selectedtheme][2]);
-	$('#secthovercol').val(colors[selectedtheme][3]);
-	$('#itemhovercol').val(colors[selectedtheme][4]);
-	$('#textcol').val(colors[selectedtheme][5]);
-}
-
 //click to go up a theme
-$('#uptheme').click(function(){
+$('.uptheme').click(function(){
 	if(selectedtheme == 3)
 	{
 		selectedtheme = 0;
@@ -224,11 +140,12 @@ $('#uptheme').click(function(){
 		selectedtheme++;
 	}
 	getcolorvals()
+	gettextvals();
 	updatefakecol();
 });
 
 //click to go down a theme
-$('#downtheme').click(function(){
+$('.downtheme').click(function(){
 	if(selectedtheme == 0)
 	{
 		selectedtheme = 3;
@@ -237,7 +154,8 @@ $('#downtheme').click(function(){
 	{
 		selectedtheme--;
 	}
-	getcolorvals()
+	getcolorvals();
+	gettextvals();
 	updatefakecol();
 });
 
@@ -251,91 +169,28 @@ $('#settingsclose').click(function(){
 	toggleSettings()
 });
 
-$('#settingssubmit').click(function(){
+function gettextvals(){
+	$('#maintext').val(TextArr[selectedtheme][0]);
+	$('#subtext').val(TextArr[selectedtheme][1]);
+	console.log(TextArr);
+}
 
-	//object to be jsonified
-	var LinkData = { }
-	//titles array for object
-	var titles = [];
-	//links array for object
-	var links = [];
-	//array of how links textarea is formatted
-	var templinks = $('#settinglinks').val().split('\n');
-	templinks = templinks.filter(function(v){return v!==''});
-	var linklength = templinks.length;
-	console.log(templinks);
+//Text edit
+$('#maintext').keyup(function(e){
+	TextArr[selectedtheme][0] = $('#maintext').val();
+	console.log(TextArr);
+});
+$('#subtext').keyup(function(e){
+	TextArr[selectedtheme][1] = $('#subtext').val();
+	console.log(TextArr);
+});
 
-	//if the last line is not a \ push a \
-	if(templinks[linklength-1] != "\\")
-	{
-		templinks.push("\\");
-		linklength++;
-	}
-
-	//array of each title links
-	var linksforarray = [];
-	for(var i = 0; i < linklength; i = i+2)
-	{
-		//check if the line is a link
-		if(templinks[i].charAt(0) != "\\") 
-		{
-			//create a link array, containing the title and the url
-			var linkdetails = [templinks[i], templinks[i+1]];
-			linksforarray.push(linkdetails);
-		}
-		else
-		{
-			if(i != linklength-1)
-			{
-				//push the title to the title array
-				var sectiontitle = templinks[i].substr(1);
-				titles.push(sectiontitle);
-			}
-
-			//if not the first title push the array of the titles links to the links array as well as the title
-			if(i !=0 )
-			{
-				links.push(linksforarray);
-				linksforarray = [];
-			}
-
-			i = i-1;
-		}
-
-		//if on the last line push the links
-		if(i == linklength-1)
-		{
-			links.push(linksforarray);
-			linksforarray = [];
-		}
-	}
-	
-	LinkData.titles = titles;
-	LinkData.links = links;
-
-	console.log("From the textarea");
-	console.log(LinkData);
-
-	localStorage.setItem("personal-links", JSON.stringify(LinkData));
-
-	var newBackgrounds = [];
-	//backgrounds
-	for(var i = 0; i < 4; i++)
-	{
-		if($('#'+times[i]+'bg').val() == "Default" || $('#'+times[i]+'bg').val() == "")
-		{
-			newBackgrounds.push(bgdefaults[i]);
-		}
-		else
-		{
-			newBackgrounds.push('url('+$('#'+times[i]+'bg').val()+')');
-		}
-	}
-
-	localStorage.setItem("personal-bg", JSON.stringify(newBackgrounds));
-
-	//colors
-	localStorage.setItem("personal-colors", JSON.stringify(colors));
-
-	location.reload();
+//reset text
+$('#maintextreset').click(function(event) {
+	TextArr[selectedtheme][0] = textDef[selectedtheme][0];
+	$('#maincol').val(textDef[selectedtheme][0]);
+});
+$('#subtextreset').click(function(event) {
+	TextArr[selectedtheme][1] = textDef[selectedtheme][1];
+	$('#sectcol').val(textDef[selectedtheme][1]);
 });

@@ -23,7 +23,6 @@
 		<div id="greeting">
 			<span class="gloss" id="hello"></span><br/>
 			<span class="gloss" id="whatwedoing">What we doing now?</span>
-			<span class="gloss" id="wewe"></span>
 		</div>
 
 		<div id="links" class="gloss main">
@@ -90,7 +89,7 @@
 				<div id="coloursetting" class="secthead gloss">Colors</div>
 				<div id="coloursettinglist" class="section item hidden nohover">
 
-					<div><span id="downtheme"><&emsp;</span><span id="themename">Theme: </span><span id="uptheme">&emsp;></div>
+					<div><span class="downtheme"><&emsp;</span><span class="themename">Theme: </span><span class="uptheme">&emsp;></div>
 
 					<div>
 						<div>Main</div>
@@ -128,6 +127,19 @@
 
 				</div>
 
+				<div id="textsetting" class="secthead gloss">Text</div>
+				<div id="textsettinglist" class="section item hidden nohover">
+					<div><span class="downtheme"><&emsp;</span><span class="themename">Theme: </span><span class="uptheme">&emsp;></div>
+
+					<div>
+						<div>Main Text</div>
+						<input type="text" class="bginput main" id="maintext"><input type="button" value="default" class="glossbutton main" id="maintextreset">
+
+						<div>Sub Text</div>
+						<input type="text" class="bginput main" id="subtext"><input type="button" value="default" class="glossbutton main" id="subtextreset">
+					</div>
+				</div>
+
 			</div>
 
 			<input type="button" name="submitbutton" class="item" id="settingssubmit" value="Update Settings"/>
@@ -135,6 +147,8 @@
 		</div>
 
 		<script src="js/preferencewindow.js"></script>
+		<script src="js/colors.js"></script>
+		<script src="js/preferencesubmit.js"></script>
 	</body>
 
 </html>
