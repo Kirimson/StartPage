@@ -3,7 +3,7 @@ var clicked = false;
 var bgdefaults = ["url(img/late.jpg)", "url(img/morning.jpg)", "url(img/afternoon.jpg)", "url(img/evening.jpg)"];
 var times = ["late", "morning", "afternoon", "evening"];
 
-var coloursDef = [
+var colorsDef = [
 		["#333", "#444", "#555", "#333", "#444"],
 		["#1F2E1C", "#253930", "#354232", "#21332B", "#414B3F"],
 		["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c"],
@@ -24,7 +24,7 @@ try{
 	var test = colors[0];
 } catch(err) {
 	console.log(err.message);
-	colors = coloursDef;
+	colors = colorsDef;
 }
 
 function toggleSettings(){
@@ -166,6 +166,34 @@ $('#secthovercol').keyup(function(){
 });
 $('#itemhovercol').keyup(function(){
 	colors[selectedtheme][4] = $('#itemhovercol').val();
+	updatefakecol();
+});
+
+//reset colors
+
+$('#mainreset').click(function(event) {
+	colors[selectedtheme][0] = coloursDef[selectedtheme][0];
+	$('#maincol').val(colorsDef[selectedtheme][0]);
+	updatefakecol();
+});
+$('#sectreset').click(function(event) {
+	colors[selectedtheme][1] = coloursDef[selectedtheme][1];
+	$('#sectcol').val(colorsDef[selectedtheme][1]);
+	updatefakecol();
+});
+$('#itemreset').click(function(event) {
+	colors[selectedtheme][2] = coloursDef[selectedtheme][2];
+	$('#itemcol').val(colorsDef[selectedtheme][2]);
+	updatefakecol();
+});
+$('#secthoverreset').click(function(event) {
+	colors[selectedtheme][3] = coloursDef[selectedtheme][3];
+	$('#secthovercol').val(colorsDef[selectedtheme][3]);
+	updatefakecol();
+});
+$('#itemhoverreset').click(function(event) {
+	colors[selectedtheme][4] = coloursDef[selectedtheme][4];
+	$('#itemhovercol').val(colorsDef[selectedtheme][4]);
 	updatefakecol();
 });
 
