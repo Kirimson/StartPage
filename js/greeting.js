@@ -1,5 +1,23 @@
 var count = 0;
 var time;
+
+var coloursDef = [
+        ["#333", "#444", "#555", "#333", "#444"],
+        ["#1F2E1C", "#253930", "#354232", "#21332B", "#414B3F"],
+        ["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c"],
+        ["#2b2241", "#403854", "#4e4467", "#39324B", "#574C73"]
+    ];
+var customColors;
+
+//try and get custom colours
+try{
+    customColors = JSON.parse(localStorage.getItem("personal-colors"));
+    var test = customColors[0];
+} catch(err) {
+    console.log(err.message);
+    customColors = coloursDef;
+}
+
 var mainColor, sectheadColor, itemColor, sectheadhoverColor, itemhoverColor;
 
 try{
@@ -37,11 +55,11 @@ function greeting() {
         m = "It's pretty late..."
         if(time != 0){$('html').css("background-image", backgrounds[0]);}
 
-        mainColor = "#333"
-        sectheadColor = "#444"
-        itemColor = "#555"
-        sectheadhoverColor = "#333"
-        itemhoverColor = "#444"
+        mainColor = customColors[0][0]
+        sectheadColor = customColors[0][1]
+        itemColor = customColors[0][2]
+        sectheadhoverColor = customColors[0][3]
+        itemhoverColor = customColors[0][4]
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -70,11 +88,11 @@ function greeting() {
         m = "Why are you up?"
         if(time != 1){$('html').css("background-image", backgrounds[1]);}
 
-        mainColor = "#1F2E1C"
-        sectheadColor = "#253930"
-        itemColor = "#354232"
-        sectheadhoverColor = "#21332B"
-        itemhoverColor = "#414B3F"
+        mainColor = customColors[1][0]
+        sectheadColor = customColors[1][1]
+        itemColor = customColors[1][2]
+        sectheadhoverColor = customColors[1][3]
+        itemhoverColor = customColors[1][4]
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -103,11 +121,11 @@ function greeting() {
         m = "Good Afternoon"
         if(time != 2){$('html').css("background-image", backgrounds[2]);}
 
-        mainColor = "#151A1D"
-        sectheadColor = "#19262F"
-        itemColor = "#2F3B43"
-        sectheadhoverColor = "#16222a"
-        itemhoverColor = "#3c464c"
+        mainColor = customColors[2][0]
+        sectheadColor = customColors[2][1]
+        itemColor = customColors[2][2]
+        sectheadhoverColor = customColors[2][3]
+        itemhoverColor = customColors[2][4]
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -137,11 +155,11 @@ function greeting() {
         m = "Good Evening"
         if(time != 3){$('html').css("background-image", backgrounds[3]);}
 
-        mainColor = "#2b2241"
-        sectheadColor = "#403854"
-        itemColor = "#4e4467"
-        sectheadhoverColor = "#39324B"
-        itemhoverColor = "#574C73"
+        mainColor = customColors[3][0]
+        sectheadColor = customColors[3][1]
+        itemColor = customColors[3][2]
+        sectheadhoverColor = customColors[3][3]
+        itemhoverColor = customColors[3][4]
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );

@@ -182,22 +182,12 @@ $(document).ready(function() {
 	    		{
 	    			selected--;
 	    		}
-	 			setHoverCol();
+	 			$('#item'+selected).css('background-color', itemhoverColor);
 	    	}
 	    }
 
 	});
 });
-
-function setHoverCol()
-{
-	var currTime = timeCheck();
-
-	if(currTime == 1){$('#item'+selected).css('background-color', late);}
-	if(currTime == 2){$('#item'+selected).css('background-color', morning);}
-	if(currTime == 3){$('#item'+selected).css('background-color', afternoon);}
-	if(currTime == 4){$('#item'+selected).css('background-color', evening);}
-}
 
 function clearBox(){
 	$('#searchbox').val('');

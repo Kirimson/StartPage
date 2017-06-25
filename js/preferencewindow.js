@@ -1,29 +1,30 @@
 var clicked = false;
 
-var late = "#333";
-var darkLate = "#444";
-var darkHover = "555";
-
-var morning = "#1F2E1C";
-var darkMorning = "#253930"
-var morningHover = "#21332B";
-
-var afternoon = "#151A1D";
-var darkAfternoon = "#19262F";
-var afternoonHover = "#16222a";
-
-var evening = "#2b2241";
-var darkEvening = "#403854";
-var eveningHover = "#39324B";
-
 var bgdefaults = ["url(img/late.jpg)", "url(img/morning.jpg)", "url(img/afternoon.jpg)", "url(img/evening.jpg)"];
 var times = ["late", "morning", "afternoon", "evening"];
+
+var coloursDef = [
+		["#333", "#444", "#555", "#333", "#444"],
+		["#1F2E1C", "#253930", "#354232", "#21332B", "#414B3F"],
+		["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c"],
+		["#2b2241", "#403854", "#4e4467", "#39324B", "#574C73"]
+	];
+var colors = [];
 
 try{
 	var LinkData = JSON.parse(localStorage.getItem("personal-links"));
 	var Backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
 } catch(err) {
 	console.log(err.message);
+}
+
+//try and get custom colours
+try{
+	colors = JSON.parse(localStorage.getItem("personal-colors"));
+	var test = colors[0];
+} catch(err) {
+	console.log(err.message);
+	colors = coloursDef;
 }
 
 function toggleSettings(){
@@ -94,7 +95,6 @@ if(Backgrounds != null)
 		}
 		else
 		{
-
 			var urlless = Backgrounds[index].substr(4);
 			urlless = urlless.slice(0, -1);
 			$('#'+times[index]+'bg').val(urlless);
@@ -108,6 +108,92 @@ else
 		$('#'+times[i]+'bg').val("Default");
 	}
 }
+
+//colours
+var selectedtheme = 1;
+updatefakecol();
+
+function updatefakecol(){
+
+	switch(selectedtheme)
+	{
+		case 0: $('#themename').html("Theme: Late");break;
+		case 1: $('#themename').html("Theme: Morning");break;
+		case 2: $('#themename').html("Theme: Afternoon");break;
+		case 3: $('#themename').html("Theme: Evening");break;
+	}
+
+	$('#fakemain').css("background-color", colors[selectedtheme][0]);
+	$('#fakesecthead').css("background-color", colors[selectedtheme][1]);
+	$('#fakeitem').css("background-color", colors[selectedtheme][2]);
+
+	$('#maincol').val(colors[selectedtheme][0]);
+	$('#sectcol').val(colors[selectedtheme][1]);
+	$('#itemcol').val(colors[selectedtheme][2]);
+	$('#secthovercol').val(colors[selectedtheme][3]);
+	$('#itemhovercol').val(colors[selectedtheme][4]);
+
+	$("#fakesecthead").hover(function(e) {
+        if(!$(this).hasClass('nohover'))
+        {
+            $(this).css("background-color",e.type === "mouseenter"?colors[selectedtheme][3]:colors[selectedtheme][1])
+        }
+    });
+    $("#fakeitem").hover(function(e) {
+        if(!$(this).hasClass('nohover'))
+        {
+            $(this).css("background-color",e.type === "mouseenter"?colors[selectedtheme][4]:colors[selectedtheme][2])
+        }
+    });
+}
+
+//edit cols
+$('#maincol').keyup(function(){
+	colors[selectedtheme][0] = $('#maincol').val();
+	updatefakecol();
+});
+$('#sectcol').keyup(function(){
+	colors[selectedtheme][1] = $('#sectcol').val();
+	updatefakecol();
+});
+$('#itemcol').keyup(function(){
+	colors[selectedtheme][2] = $('#itemcol').val();
+	updatefakecol();
+});
+$('#secthovercol').keyup(function(){
+	colors[selectedtheme][3] = $('#secthovercol').val();
+	updatefakecol();
+});
+$('#itemhovercol').keyup(function(){
+	colors[selectedtheme][4] = $('#itemhovercol').val();
+	updatefakecol();
+});
+
+//click to go up a theme
+$('#uptheme').click(function(){
+	if(selectedtheme == 3)
+	{
+		selectedtheme = 0;
+	}
+	else
+	{
+		selectedtheme++;
+	}
+	updatefakecol();
+});
+
+//click to go down a theme
+$('#downtheme').click(function(){
+	if(selectedtheme == 0)
+	{
+		selectedtheme = 3;
+	}
+	else
+	{
+		selectedtheme--;
+	}
+	updatefakecol();
+});
 
 //clicking settings toggles
 $('#settings').click(function(){
@@ -201,6 +287,9 @@ $('#settingssubmit').click(function(){
 	}
 
 	localStorage.setItem("personal-bg", JSON.stringify(newBackgrounds));
+
+	//colors
+	localStorage.setItem("personal-colors", JSON.stringify(colors));
 
 	location.reload();
 });

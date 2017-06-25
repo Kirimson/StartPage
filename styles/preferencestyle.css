@@ -51,7 +51,7 @@
 	resize: none;
 }
 
-#settinglinks:focus{
+#settinglinks:focus, .bginput:focus{
 	outline: none;
 }
 
@@ -92,9 +92,55 @@
 	width: 64%;
 }
 
+#themename{
+	display: inline-block;
+	min-width: 8em;
+}
+
+#downtheme:hover, #uptheme:hover {
+	cursor: pointer;
+}
+
+#fakecontain{
+	padding-bottom: 1em;
+}
+
+#fakemain, #fakesecthead, #fakeitem{
+	transition: background-color 0.1s linear;
+}
+
+#fakemain{
+	width: 50%;
+	margin: auto;
+	border: 1px solid white;
+	color: #eee;
+}
+
+#fakesecthead{
+	height: 4.15vh;
+	font-size: 3.15vh;
+	color: #ccc;
+}
+
+#fakeitem{
+	font-size: 4vh;
+	min-height: 3vh;
+	font-size: 2.25vh;
+	color: #eee;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {  
 /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */  
 	#settingscontain {
 		margin-right: 0;
+	}
+}
+
+@media only screen and (max-device-width: 480px) {
+	#settingsmain{
+		left:0%;
+		right:0%;
+		top:0%;
+		bottom:0%;
 	}
 }
