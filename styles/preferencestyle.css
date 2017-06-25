@@ -1,13 +1,12 @@
 #settingsmain{
 	position: fixed;
 	background-color: #212121;
-	left:30%;
-	right:30%;
-	top:10%;
-	bottom:10%;
+	left:25%;
+	right:25%;
+	top:5%;
+	bottom:5%;
 	display: none;
 	opacity: 0.9;
-	color: white;
 	text-align: center;
 	overflow-y: hidden;
 	overflow-x: hidden;
@@ -46,7 +45,6 @@
 	overflow-y: scroll;
 	text-align: left;
 	margin: auto;
-	color: white;
 	border: none; 
 	resize: none;
 }
@@ -72,7 +70,6 @@
 	padding-left: 0.5em;
 	background-color: red;
 	border: none;
-	color: white;
 	transition: background-color 0.1s linear;
 }
 
@@ -107,26 +104,24 @@
 
 #fakemain, #fakesecthead, #fakeitem{
 	transition: background-color 0.1s linear;
+	transition: color 0.1s linear;
 }
 
 #fakemain{
-	width: 50%;
+	width: 40%;
 	margin: auto;
 	border: 1px solid white;
-	color: #eee;
 }
 
 #fakesecthead{
 	height: 4.15vh;
 	font-size: 3.15vh;
-	color: #ccc;
 }
 
 #fakeitem{
 	font-size: 4vh;
 	min-height: 3vh;
 	font-size: 2.25vh;
-	color: #eee;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {  

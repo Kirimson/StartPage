@@ -55,11 +55,15 @@ function greeting() {
         m = "It's pretty late..."
         if(time != 0){$('html').css("background-image", backgrounds[0]);}
 
-        mainColor = customColors[0][0]
-        sectheadColor = customColors[0][1]
-        itemColor = customColors[0][2]
-        sectheadhoverColor = customColors[0][3]
-        itemhoverColor = customColors[0][4]
+        mainColor = customColors[0][0];
+        sectheadColor = customColors[0][1];
+        itemColor = customColors[0][2];
+        sectheadhoverColor = customColors[0][3];
+        itemhoverColor = customColors[0][4];
+        textColor = customColors[0][5];
+
+        $('html').css('color', textColor);
+        $('input').css('color', textColor);
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -93,6 +97,10 @@ function greeting() {
         itemColor = customColors[1][2]
         sectheadhoverColor = customColors[1][3]
         itemhoverColor = customColors[1][4]
+        textColor = customColors[1][5];
+
+        $('html').css('color', textColor);
+        $('input').css('color', textColor);
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -126,6 +134,10 @@ function greeting() {
         itemColor = customColors[2][2]
         sectheadhoverColor = customColors[2][3]
         itemhoverColor = customColors[2][4]
+        textColor = customColors[2][5];
+
+        $('html').css('color', textColor);
+        $('input').css('color', textColor);
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
@@ -160,6 +172,10 @@ function greeting() {
         itemColor = customColors[3][2]
         sectheadhoverColor = customColors[3][3]
         itemhoverColor = customColors[3][4]
+        textColor = customColors[3][5];
+
+        $('html').css('color', textColor);
+        $('input').css('color', textColor);
 
         $('meta[name=theme-color]').remove();
         $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );

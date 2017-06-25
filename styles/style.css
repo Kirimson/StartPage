@@ -6,6 +6,11 @@ html{
 	font-weight: lighter;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+	color: #eee;
+}
+
+input{
+	color: #eee;
 }
 
 a{
@@ -20,7 +25,6 @@ a{
 	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
 	font-size: 4vh;
 	text-align: center;
-	color: #eee;
 	font-weight: lighter;
 	font-size: 3.5vh;
 	padding: 0;
@@ -32,7 +36,6 @@ a{
 
 .glossheading{
 	font-size: 4vh;
-	color: #eee;
 	width: 100%;
 }
 
@@ -44,7 +47,6 @@ a{
 	padding-right: 0.5em;
 	padding-left: 0.5em;
 	border: none;
-	color: white;
 	transition: background-color 0.1s linear;
 }
 
@@ -71,7 +73,6 @@ a{
 	font-size: 2.25vh;
 	font-family: "Eras ITC", "Eras Medium ITC", "Calibri Light", "Cantarell", sans-serif;
 	font-weight: medium;
-	color: #eee;
 	transition: background-color 0.1s linear;
 	background-color: #2F3B43;
 }
@@ -86,7 +87,6 @@ a{
 	width:100%;
 	height: 4.15vh;
 	font-size: 3.15vh;
-	color: #ccc;
 	border-bottom: 1px solid;
 	border-color: rgba(47,25,38,0);
 	transition: background-color 0.1s linear;
@@ -105,17 +105,12 @@ a{
 	display: none;
 }
 
-.wtext{
-	color: #eee;
-}
-
 #info{
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	height: 5vh;
-	color: #fff;
 	text-align: center;
 	font-size: 3.5vh;
 }
@@ -170,7 +165,6 @@ a{
 #greeting{
 	position: relative;
 	text-align: center;
-	color: white;
 	top: 5vh;
 	font-size: 10vh;
 }
@@ -210,7 +204,6 @@ a{
 	bottom: 0;
 	right: 0;
 	font-size: 12pt;
-	color:white;
 	opacity: 0;
 }
 #settings:hover{
@@ -223,7 +216,6 @@ a{
 	bottom: 0;
 	left: 0;
 	font-size: 12pt;
-	color:white;
 	opacity: 0;
 }
 
@@ -257,7 +249,6 @@ a{
 	#greeting{
 		position: relative;
 		text-align: center;
-		color: white;
 		top: 5vh;
 		font-size: 6vh;
 		margin: 0.2em;
