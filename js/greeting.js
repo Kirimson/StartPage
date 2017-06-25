@@ -60,7 +60,7 @@ function greeting() {
         $(".item").hover(function(e) {
             if(!$(this).hasClass('nohover'))
             {
-                 $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
             }
         });
         time = 0;
@@ -84,10 +84,16 @@ function greeting() {
         $('.item').css("background-color", itemColor)
 
         $(".secthead").hover(function(e) {
-            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            }
         });
         $(".item").hover(function(e) {
-             $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            }
         });
         time = 1;
     }
@@ -111,10 +117,16 @@ function greeting() {
         $('.item').css("background-color", itemColor)
 
         $(".secthead").hover(function(e) {
-            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            }
         });
         $(".item").hover(function(e) {
-             $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            }
         });
 
         time = 2;
@@ -139,10 +151,16 @@ function greeting() {
         $('.item').css("background-color", itemColor)
 
         $(".secthead").hover(function(e) {
-            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+            }
         });
         $(".item").hover(function(e) {
-             $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            if(!$(this).hasClass('nohover'))
+            {
+                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+            }
         });
         time = 3;
     }
