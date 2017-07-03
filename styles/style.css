@@ -211,7 +211,7 @@ a{
 	cursor: pointer;
 }
 
-#github{
+#githubrepo{
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -219,7 +219,7 @@ a{
 	opacity: 0;
 }
 
-#github:hover{
+#githubrepo:hover{
 	opacity: 1;
 	cursor: pointer;
 }
