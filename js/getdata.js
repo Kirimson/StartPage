@@ -25,7 +25,8 @@ if(LinkData != null)
 	for(var i = 0; i < LinkData.titles.length; i++)
 	{
 		//for each title make a secthead div
-		var newHTML='<div id="'+LinkData.titles[i].toLowerCase()+'" class="gloss secthead">'+LinkData.titles[i]+'</div><div id="'+LinkData.titles[i].toLowerCase()+'list" class="section hidden">';
+		var title = LinkData.titles[i].toLowerCase().replace(/\s/g, '');
+		var newHTML='<div id="'+title+'" class="gloss secthead">'+LinkData.titles[i]+'</div><div id="'+title+'list" class="section hidden">';
 
 		//for each title go through the links inside the same index of the links parameter
 		for(var k = 0; k < LinkData.links[i].length; k++)
