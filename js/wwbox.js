@@ -38,9 +38,7 @@ $(document).ready(function() {
 	    	ctrlDown = false;
 	    }
 
-		//set up regex search for list
-		var temp = $("#searchbox").val().toLowerCase().replace(/\W/g, '.*');
-		var regexdSearch = new RegExp('.*'+temp+'.*');
+		var searchText = $("#searchbox").val().toLowerCase();
 
 		//if enter
 		if (e.keyCode == 13) {
@@ -55,7 +53,7 @@ $(document).ready(function() {
 			for(i=0; i < items.length;i++)
             {
             	//check if conditions are met. If shift is held, item url is not used
-            	if(items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1 && found === false && shiftDown == false)
+            	if(items[i].innerHTML.toLowerCase().indexOf(searchText) != -1 && found === false && shiftDown == false)
                 {
                 	normal = false;
                 	var noSpace = "item"+selected;
@@ -93,11 +91,11 @@ $(document).ready(function() {
 					//google search
 					if(ctrlDown == true)
 					{
-						window.open("https://www.google.co.uk/search?q="+$('#searchbox').val())
+						window.open("https://www.google.co.uk/search?q="+encodeURIComponent($('#searchbox').val()));
 					}
 					else
 					{
-						window.location.href = "https://www.google.co.uk/search?q="+$('#searchbox').val();
+						window.location.href = "https://www.google.co.uk/search?q="+encodeURIComponent($('#searchbox').val());
 					}
 				}
 			}
@@ -120,7 +118,7 @@ $(document).ready(function() {
 	            for(i=0; i < items.length;i++)
 	            {
 	            	//if the regexed search equals one of the items, add to the dropdown
-	                if(k < 10 && items[i].innerHTML.toLowerCase().regexIndexOf(regexdSearch) != -1)
+	                if(k < 10 && items[i].innerHTML.toLowerCase().indexOf(searchText) != -1)
 	                {
 	                	k++;
 	                	maxSelect = k;
