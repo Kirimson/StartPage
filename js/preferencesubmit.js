@@ -27,6 +27,9 @@ $('#settingssubmit').click(function(){
 		if(templinks[i].charAt(0) != "\\") 
 		{
 			//create a link array, containing the title and the url
+			if(templinks[i+1].substring(0,8) != "https://" && templinks[i+1].substring(0,7) != "http://"){
+				templinks[i+1] = "http://"+templinks[i+1];
+			}
 			var linkdetails = [templinks[i], templinks[i+1]];
 			linksforarray.push(linkdetails);
 		}
@@ -66,7 +69,7 @@ $('#settingssubmit').click(function(){
 	//backgrounds
 	for(var i = 0; i < 4; i++)
 	{
-		if($('#'+times[i]+'bg').val() == "Default" || $('#'+times[i]+'bg').val() == "")
+		if($('#'+times[i]+'bg').val().toLowerCase() == "default" || $('#'+times[i]+'bg').val() == "")
 		{
 			newBackgrounds.push(bgdefaults[i]);
 		}

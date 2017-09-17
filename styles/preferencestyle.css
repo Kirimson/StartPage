@@ -3,8 +3,8 @@
 	background-color: #212121;
 	left:25%;
 	right:25%;
-	top:5%;
-	bottom:5%;
+	top:7.5%;
+	bottom:7.5%;
 	display: none;
 	opacity: 0.9;
 	text-align: center;
@@ -103,9 +103,8 @@
 	padding-bottom: 1em;
 }
 
-#fakemain, #fakesecthead, #fakeitem{
-	transition: background-color 0.1s linear;
-	transition: color 0.1s linear;
+.fake{
+	transition: background-color 0.1s linear, color 0.1s linear;
 }
 
 #fakemain{

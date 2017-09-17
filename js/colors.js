@@ -1,5 +1,25 @@
 //colours
-var selectedtheme = 1;
+var selectedtheme = timeCheck();
+selectedtheme--;
+
+var colors = [];
+
+var colorsDef = [
+		["#333", "#444", "#555", "#333", "#444", "#eee"],
+		["#1F2E1C", "#253930", "#354232", "#21332B", "#414B3F", "#eee"],
+		["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c", "#eee"],
+		["#2b2241", "#403854", "#4e4467", "#39324B", "#574C73", "#eee"]
+	];
+
+//try and get custom colours
+try{
+	colors = JSON.parse(localStorage.getItem("personal-colors"));
+	var test = colors[0];
+} catch(err) {
+	console.log(err.message);
+	colors = colorsDef;
+}
+
 updatefakecol();
 
 function updatefakecol(){
@@ -18,8 +38,6 @@ function updatefakecol(){
 	$('#fakemain').css("color", colors[selectedtheme][5]);
 
 	//text
-
-
 
 	$("#fakesecthead").hover(function(e) {
         if(!$(this).hasClass('nohover'))

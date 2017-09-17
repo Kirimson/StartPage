@@ -203,25 +203,20 @@ a{
 	position: absolute;
 	bottom: 0;
 	right: 0;
+	padding: 0.5em;
 	font-size: 12pt;
-	opacity: 0;
+	transition: background-color 0.1s linear;
+	opacity: 0.9;
+	display: inline-block;
 }
+
 #settings:hover{
-	opacity: 1;
 	cursor: pointer;
 }
 
-#githubrepo{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	font-size: 12pt;
-	opacity: 0;
-}
-
-#githubrepo:hover{
-	opacity: 1;
-	cursor: pointer;
+i span{
+	margin-left: 0.5em;
+	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
 }
 
 ::-moz-scrollbar { 

@@ -3,14 +3,6 @@ var clicked = false;
 var bgdefaults = ["url(img/late.jpg)", "url(img/morning.jpg)", "url(img/afternoon.jpg)", "url(img/evening.jpg)"];
 var times = ["late", "morning", "afternoon", "evening"];
 
-var colorsDef = [
-		["#333", "#444", "#555", "#333", "#444", "#eee"],
-		["#1F2E1C", "#253930", "#354232", "#21332B", "#414B3F", "#eee"],
-		["#151A1D", "#19262F", "#2F3B43", "#16222a", "#3c464c", "#eee"],
-		["#2b2241", "#403854", "#4e4467", "#39324B", "#574C73", "#eee"]
-	];
-var colors = [];
-
 var TextArr = [];
 var textDef = [
 	["It's pretty late...", "What we doing now?"],
@@ -25,15 +17,6 @@ try{
 	var Backgrounds = JSON.parse(localStorage.getItem("personal-bg"));
 } catch(err) {
 	console.log(err.message);
-}
-
-//try and get custom colours
-try{
-	colors = JSON.parse(localStorage.getItem("personal-colors"));
-	var test = colors[0];
-} catch(err) {
-	console.log(err.message);
-	colors = colorsDef;
 }
 
 //try and get text
@@ -54,7 +37,6 @@ function toggleSettings(){
 	else
 	{
 		$('#settingsmain').css('display', 'none');
-		$('#settinglinks').focus();
 	}
 	clicked=!clicked;
 }
@@ -64,7 +46,10 @@ $(document).mousedown(function (e)
 {
 	var container = $("#settingsmain");
     if (!container.is(e.target) && container.has(e.target).length === 0 && clicked){
-    	toggleSettings();
+    	if (!$('#settings').is(e.target) && $('#settings').has(e.target).length === 0)
+    	{
+    		toggleSettings();
+    	}
     }
 });
 
@@ -108,13 +93,15 @@ else
 //backgrounds
 if(Backgrounds != null)
 {
-	jQuery.each(LinkData.links, function(index, el) {
+	jQuery.each(Backgrounds, function(index, el) {
 		if(Backgrounds[index] == bgdefaults[index])
 		{
+			//if default image, set text to 'default'
 			$('#'+times[index]+'bg').val('Default');
 		}
 		else
 		{
+			//get url from local storaage, remove css url syntax and display in textbox
 			var urlless = Backgrounds[index].substr(4);
 			urlless = urlless.slice(0, -1);
 			$('#'+times[index]+'bg').val(urlless);
@@ -129,6 +116,7 @@ else
 	}
 }
 
+//Theme Selection (for Colours and Text)
 //click to go up a theme
 $('.uptheme').click(function(){
 	if(selectedtheme == 3)
@@ -139,7 +127,7 @@ $('.uptheme').click(function(){
 	{
 		selectedtheme++;
 	}
-	getcolorvals()
+	getcolorvals();
 	gettextvals();
 	updatefakecol();
 });
@@ -172,25 +160,22 @@ $('#settingsclose').click(function(){
 function gettextvals(){
 	$('#maintext').val(TextArr[selectedtheme][0]);
 	$('#subtext').val(TextArr[selectedtheme][1]);
-	console.log(TextArr);
 }
 
 //Text edit
 $('#maintext').keyup(function(e){
 	TextArr[selectedtheme][0] = $('#maintext').val();
-	console.log(TextArr);
 });
 $('#subtext').keyup(function(e){
 	TextArr[selectedtheme][1] = $('#subtext').val();
-	console.log(TextArr);
 });
 
 //reset text
 $('#maintextreset').click(function(event) {
 	TextArr[selectedtheme][0] = textDef[selectedtheme][0];
-	$('#maincol').val(textDef[selectedtheme][0]);
+	$('#maintext').val(textDef[selectedtheme][0]);
 });
 $('#subtextreset').click(function(event) {
 	TextArr[selectedtheme][1] = textDef[selectedtheme][1];
-	$('#sectcol').val(textDef[selectedtheme][1]);
+	$('#subtext').val(textDef[selectedtheme][1]);
 });

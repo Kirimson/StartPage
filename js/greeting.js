@@ -53,11 +53,8 @@ function timeCheck()
     var ho = date.getHours();
     
     if(ho >= 1 && ho <= 8){return 1;}
-
     if(ho >= 9 && ho <= 11){return 2;}
-
     if(ho >= 12 && ho <= 17){return 3;}
-
     if(ho >= 18 || ho ==0){return 4;}
 };
 
@@ -81,29 +78,6 @@ function greeting() {
         itemhoverColor = customColors[0][4];
         textColor = customColors[0][5];
 
-        $('html').css('color', textColor);
-        $('input').css('color', textColor);
-
-        $('meta[name=theme-color]').remove();
-        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
-
-        $('.main').css("background-color", mainColor)
-        $('.secthead').css("background-color", sectheadColor)
-        $('.item').css("background-color", itemColor)
-
-        $(".secthead").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
-            }
-        });
-
-        $(".item").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
-            }
-        });
         time = 0;
     }
     if(t == 2){
@@ -119,28 +93,6 @@ function greeting() {
         itemhoverColor = customColors[1][4]
         textColor = customColors[1][5];
 
-        $('html').css('color', textColor);
-        $('input').css('color', textColor);
-
-        $('meta[name=theme-color]').remove();
-        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
-
-        $('.main').css("background-color", mainColor)
-        $('.secthead').css("background-color", sectheadColor)
-        $('.item').css("background-color", itemColor)
-
-        $(".secthead").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
-            }
-        });
-        $(".item").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
-            }
-        });
         time = 1;
     }
 
@@ -156,29 +108,6 @@ function greeting() {
         sectheadhoverColor = customColors[2][3]
         itemhoverColor = customColors[2][4]
         textColor = customColors[2][5];
-
-        $('html').css('color', textColor);
-        $('input').css('color', textColor);
-
-        $('meta[name=theme-color]').remove();
-        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
-
-        $('.main').css("background-color", mainColor)
-        $('.secthead').css("background-color", sectheadColor)
-        $('.item').css("background-color", itemColor)
-
-        $(".secthead").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
-            }
-        });
-        $(".item").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
-            }
-        });
 
         time = 2;
     }
@@ -196,30 +125,39 @@ function greeting() {
         itemhoverColor = customColors[3][4]
         textColor = customColors[3][5];
 
-        $('html').css('color', textColor);
-        $('input').css('color', textColor);
-
-        $('meta[name=theme-color]').remove();
-        $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
-
-        $('.main').css("background-color", mainColor)
-        $('.secthead').css("background-color", sectheadColor)
-        $('.item').css("background-color", itemColor)
-
-        $(".secthead").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
-            }
-        });
-        $(".item").hover(function(e) {
-            if(!$(this).hasClass('nohover'))
-            {
-                $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
-            }
-        });
         time = 3;
     }
+
+    $('html').css('color', textColor);
+    $('input').css('color', textColor);
+
+    $('meta[name=theme-color]').remove();
+    $('head').append( '<meta name="theme-color" content="'+mainColor+'">' );
+
+    $('.main').css("background-color", mainColor);
+    $('.secthead').css("background-color", sectheadColor);
+    $('.item').css("background-color", itemColor);
+
+    $('#settings').css("background-color", sectheadColor);
+
+    $(".secthead").hover(function(e) {
+        if(!$(this).hasClass('nohover'))
+        {
+            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+        }
+    });
+    $("#settings").hover(function(e) {
+        if(!$(this).hasClass('nohover'))
+        {
+            $(this).css("background-color",e.type === "mouseenter"?sectheadhoverColor:sectheadColor)
+        }
+    });
+    $(".item").hover(function(e) {
+        if(!$(this).hasClass('nohover'))
+        {
+            $(this).css("background-color",e.type === "mouseenter"?itemhoverColor:itemColor)
+        }
+    });
 
     $('#hello').html(msg);
     $('#whatwedoing').html(doingmsg);
