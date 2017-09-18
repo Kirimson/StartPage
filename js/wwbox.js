@@ -9,6 +9,73 @@ var late = "#333";
 var morning = "#21332B";
 var afternoon = "#16222a";
 var evening = "#39324B";
+var dropText = "";
+
+function getSearchTerms(searchString){
+
+	console.log(searchString);
+
+	try {
+		baseString = encodeURIComponent($('#searchbox').val().split(":")[1].substring(1));
+	} catch(err) {
+		baseString = encodeURIComponent($('#searchbox').val());
+	}
+
+	var plainSearch = $('#searchbox').val().split(":")[1];
+
+	switch(searchString){
+		case "img":
+			finalSearch = "https://www.google.co.uk/search?tbm=isch&q="+baseString;
+			dropText = "Image search:"+plainSearch;
+			break;
+		case "yt":
+			finalSearch = "https://www.youtube.com/results?search_query="+baseString;
+			dropText = "Youtube search:"+plainSearch;
+			break;
+		case "ama":
+			finalSearch = "https://www.amazon.co.uk/s/ref=nb_sb_noss_2?url=search-alias%3Daps&field-keywords="+baseString;
+			dropText = "Amazon search:"+plainSearch;
+			break;
+		case "map":
+			finalSearch = "https://www.google.co.uk/maps/search/"+baseString;
+			dropText = "Maps search:"+plainSearch;
+			break;
+		case "stack":
+			finalSearch = "https://stackoverflow.com/questions/tagged/"+baseString;
+			dropText = "Stack search:"+plainSearch;
+			break;
+		case "ddg":
+			finalSearch = "https://duckduckgo.com/?q="+baseString;
+			dropText = "Duckduckgo:"+plainSearch;
+			break;
+		default:
+			finalSearch = "https://www.google.co.uk/search?q="+baseString;
+			dropText = "default";
+	}
+
+	if(dropText.length >= 27)
+	{
+		dropText = dropText.substring(0, 23)+"...";
+	}
+
+	console.log(dropText);
+
+}
+
+function analyseSearch(searchString){
+	console.log(searchString);
+
+	getSearchTerms(searchString);
+
+	if(ctrlDown == true)
+	{
+		window.open(finalSearch);
+	}
+	else
+	{
+		window.location.href = finalSearch;
+	}
+}
 
 $(document).ready(function() {
 
@@ -88,15 +155,7 @@ $(document).ready(function() {
 						window.location.href = "http://"+$('#searchbox').val();
 					}
 				} else {
-					//google search
-					if(ctrlDown == true)
-					{
-						window.open("https://www.google.co.uk/search?q="+encodeURIComponent($('#searchbox').val()));
-					}
-					else
-					{
-						window.location.href = "https://www.google.co.uk/search?q="+encodeURIComponent($('#searchbox').val());
-					}
+					analyseSearch($('#searchbox').val().split(':')[0]);
 				}
 			}
 		}
@@ -105,7 +164,7 @@ $(document).ready(function() {
 			//get all items
 			var items = $("#linkcontain").children(".section").children().children(".item");
 
-			//if seatchbox not empty
+			//if searchbox not empty
 	        if(!$("#searchbox").val() == "")
 	        {
 	            $('#dropdown').html("");
@@ -130,11 +189,18 @@ $(document).ready(function() {
 	                   	if($('#dropdown').css('display') == "none")
 	                   	{
 	                        $('#dropdown').css('display', 'block');
-
 	                   	}
 	                   	match = true;
 	                }
 	            }
+	            
+            	if($('#searchbox').val().indexOf(":") !== -1){
+            		getSearchTerms($('#searchbox').val().split(':')[0]);
+            	}
+            	else
+            	{
+            		dropText = "default";
+            	}
 
 	            if(match && selected == 0)
 	            {
@@ -150,9 +216,19 @@ $(document).ready(function() {
 
 	            if(!match)
 	            {
+	            	console.log("not match");
 	                $('#dropdown').html("");
 	                $('#dropdown').css('display', 'none');
 	                selected = 0;
+	            }
+
+	            if(dropText != "default")
+	            {
+	            	console.log("droptext not default");
+	            	$('#dropdown').html("<a href='"+finalSearch+"'><div id='item"+k+"'' class='gloss secthead'>"+dropText+"</div></a>");
+	            	$('#dropdown').css('display', 'block');
+	            	greeting();
+	            	match = true;
 	            }
 
 	        }
