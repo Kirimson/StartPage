@@ -39,25 +39,6 @@ a{
 	width: 100%;
 }
 
-.glossbutton{
-	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
-	font-weight: lighter;
-	font-size: 14pt;
-	margin: 0.75em;
-	padding-right: 0.5em;
-	padding-left: 0.5em;
-	border: none;
-	transition: background-color 0.1s linear;
-}
-
-.glossbutton:hover{
-	cursor: pointer;
-}
-
-.glossbutton:focus{
-	outline: none;
-}
-
 .gloss{
 	opacity: 0.9;
 	text-align: center;
@@ -283,6 +264,10 @@ i span{
 
 	#search{
 		display: none;
+	}
+
+	#settings{
+		font-size: 24pt;
 	}
 }
 

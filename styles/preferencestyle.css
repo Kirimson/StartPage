@@ -64,7 +64,8 @@
 #settingssubmit{
 	position: absolute;
 	bottom: 0;
-	font-size: 2vh;
+	height: 4.15vh;
+	font-size: 3.15vh;
 	display: block;
 	margin: auto;
 	margin-top: 0.75em;
@@ -126,6 +127,25 @@
 	font-size: 2.25vh;
 }
 
+.glossbutton{
+	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
+	font-weight: lighter;
+	font-size: 14pt;
+	margin: 0.75em;
+	padding-right: 0.5em;
+	padding-left: 0.5em;
+	border: none;
+	transition: background-color 0.1s linear;
+}
+
+.glossbutton:hover{
+	cursor: pointer;
+}
+
+.glossbutton:focus{
+	outline: none;
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {  
 /* CSS Statements that only apply on webkit-based browsers (Chrome, Safari, etc.) */  
 	#settingscontain {
@@ -139,5 +159,27 @@
 		right:0%;
 		top:0%;
 		bottom:0%;
+		opacity: 1;
+	}
+
+	#settinglinks{
+		width: 95%;
+		height: 65%;
+		margin: auto;
+		border: none; 
+		resize: none;
+	}
+	.instructions{
+		padding-right: 1em;
+		padding-left: 1em;
+		font-size: 18pt;
+	}
+
+	.bginput{
+		font-size: 36pt;
+	}
+
+	.glossbutton{
+		font-size: 36pt;
 	}
 }

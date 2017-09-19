@@ -6,7 +6,7 @@ var times = ["late", "morning", "afternoon", "evening"];
 var TextArr = [];
 var textDef = [
 	["It's pretty late...", "What we doing now?"],
-	["Why are you up?", "What we doing now?"],
+	["Good morning", "What we doing now?"],
 	["Good Afternoon", "What we doing now?"],
 	["Good Evening", "What we doing now?"]
 ]
