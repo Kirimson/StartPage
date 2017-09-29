@@ -11,7 +11,7 @@ var coloursDef = [
 var customText = [];
 var textDef = [
         ["It's pretty late...", "What we doing now?"],
-        ["Why are you up?", "What we doing now?"],
+        ["Good Morning", "What we doing now?"],
         ["Good Afternoon", "What we doing now?"],
         ["Good Evening", "What we doing now?"]
     ];
