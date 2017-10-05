@@ -10,7 +10,6 @@ $('#settingssubmit').click(function(){
 	var templinks = $('#settinglinks').val().split('\n');
 	templinks = templinks.filter(function(v){return v!==''});
 	var linklength = templinks.length;
-	console.log(templinks);
 
 	//if the last line is not a \ push a \
 	if(templinks[linklength-1] != "\\")

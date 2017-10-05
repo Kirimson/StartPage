@@ -28,7 +28,7 @@ try{
 	TextArr = textDef;
 }
 
-if(minmode){
+if(minmode === true){
 	$('#minmodecheck').prop('checked', true);
 }
 
