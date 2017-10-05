@@ -7,6 +7,7 @@ html{
 	-moz-user-select: none;
 	-webkit-user-select: none;
 	color: #eee;
+	overflow-y: hidden;
 }
 
 input{
@@ -127,6 +128,7 @@ a{
 }
 
 #dropdown{
+	padding: -1em;
 	position: relative;
 	width: 100%;
 	height: auto;
@@ -134,6 +136,7 @@ a{
 	text-align: center;
 	opacity: 1;
 	display: none;
+	top: -0.1em;
 }
 
 .droptest{
@@ -178,6 +181,11 @@ a{
 
 #temperature{
 	font-size: 5vh;
+}
+
+#minmodecheck{
+	position: relative;
+	top: 0.2em;
 }
 
 #settings{

@@ -41,3 +41,19 @@ if(LinkData != null)
 		$('#linkcontain').append(newHTML);
 	}
 }
+
+//try and get minmode flag
+try{
+	var minmode = JSON.parse(localStorage.getItem("min-mode"));
+	if(minmode == "false")
+	{
+		minmode = false
+	}
+	else
+	{
+		minmode = true;
+	}
+} catch(err) {
+	console.warn("Couldnt find min-mode storage val. Defaulting")
+	minmode = false;
+}

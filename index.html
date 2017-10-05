@@ -3,20 +3,19 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
 		<link rel="stylesheet" type="text/css" href="styles/preferencestyle.css">
+		<link rel="stylesheet" type="text/css" href="styles/minstyle.css">
 		<link rel="icon" type="image/png" href="favicon.ico">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="js/jquery.simpleWeather.min.js"></script>
 		<script src="js/greeting.js"></script>
-		<script src="js/weather.js"></script>
 		<script src="js/section.js"></script>
 		<script src="js/datetime.js"></script>
-		<script src="js/wwbox.js"></script>
-		<script src="js/jquery.cookie.js"></script>
 		<script src="https://use.fontawesome.com/d2e846bf92.js"></script>
 		<title>Start Page</title>
 		<meta name="theme-color" content="#151A1D"/>
 	</head>
 	<body>
+
 		<div id="info" class="gloss main">
 			<span id="date"></span><span id="time"></span>
 		</div>
@@ -39,7 +38,7 @@
 			<div id="dayforcast" class="wtext"></div>
 		</div>
 
-		<div id="search" class="gloss main">
+		<div id="search" class="gloss main searchmin">
 			<div class="glossheading gloss">Search</div>
 			<input id="searchbox" type="text" name="q" value="" autocomplete="off" autofocus>
 			<div id="dropdown" class="main">A</div>
@@ -139,21 +138,16 @@
 					</div>
 				</div>
 
-				<div id="helpsetting" class="secthead gloss">Help and Tricks</div>
+				<div id="helpsetting" class="secthead gloss">Help and Misc Settings</div>
 				<div id="helpsettinglist" class="section item hidden nohover">
 					<div class="instructions">
-						<div>Advanced search box tricks. Using a search site term, you can instantly search certain sites</div>
+						<div>Using a site term, you can search certain sites right away. Examples:</div>
+						<div>maps: Google maps. yt: Youtube. ama: Amazon</div>
 						<br>
-						<div>- img: - Google Images search</div>
-						<div>- maps: - Google maps search</div>
-						<div>- yt: - Youtube search</div>
-						<div>- ama: - Amazon search</div>
-						<div>- stack: - Stackoverflow search</div>
-						<div>- ddg: - Duckduckgo search</div>
+						<div>For more info on site terms, look at <u><a href="https://github.com/Kirimson/StartPage/blob/master/README.md">README.md</a></u></div>
 						<br>
-						<div>Note: Duckduckgo !bangs work when searching with ddg: Learn more about !bangs <a href="https://duckduckgo.com/bang"><u>here</u></a></div>
-						<br>
-						<div>Example: img: cute cats<br>Google image searches for cute cats</div>
+						<div>Minimilistic Mode: <input name="minmode" id="minmodecheck" type="checkbox"></input></div>
+						<div>A super sleek and minimal StartPage. Just start typing to use the search box!</div>
 						<br>
 						<div><a href="http://www.github.com/kirimson/StartPage"><u>Github</u></a>&emsp;<a href="https://github.com/Kirimson/StartPage/issues/new"><u>Report an issue</u></a></div>
 					</div>
@@ -164,10 +158,12 @@
 			<input type="button" name="submitbutton" class="item" id="settingssubmit" value="Update Settings"/>
 
 		</div>
-
-		<script src="js/colors.js"></script>
-		<script src="js/preferencewindow.js"></script>		
-		<script src="js/preferencesubmit.js"></script>
 	</body>
 
+	<script src="js/colors.js"></script>
+	<script src="js/preferencewindow.js"></script>		
+	<script src="js/preferencesubmit.js"></script>
+	<script src="js/minmode.js"></script>
+	<script src="js/weather.js"></script>
+	<script src="js/wwbox.js"></script>
 </html>

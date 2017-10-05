@@ -13,8 +13,6 @@ var dropText = "";
 
 function getSearchTerms(searchString){
 
-	console.log(searchString);
-
 	try {
 		baseString = encodeURIComponent($('#searchbox').val().split(":")[1].substring(1));
 	} catch(err) {
@@ -53,12 +51,14 @@ function getSearchTerms(searchString){
 			dropText = "default";
 	}
 
-	if(dropText.length >= 27)
-	{
-		dropText = dropText.substring(0, 23)+"...";
-	}
+	if(minmode){var maxlength = 24;}else{var maxlength = 27;}
 
-	console.log(dropText);
+	console.log(maxlength)
+
+	if(dropText.length >= maxlength)
+	{
+		dropText = dropText.substring(0, maxlength-3)+"...";
+	}
 
 }
 
@@ -191,6 +191,12 @@ $(document).ready(function() {
 	                        $('#dropdown').css('display', 'block');
 	                   	}
 	                   	match = true;
+	                   	if(minmode){
+				        	$('#dropdown').find('.secthead').css({
+								'font-size': '6vh',
+								'height':'7.5vh'
+							});
+				        }
 	                }
 	            }
 	            
@@ -216,7 +222,6 @@ $(document).ready(function() {
 
 	            if(!match)
 	            {
-	            	console.log("not match");
 	                $('#dropdown').html("");
 	                $('#dropdown').css('display', 'none');
 	                selected = 0;
@@ -224,11 +229,16 @@ $(document).ready(function() {
 
 	            if(dropText != "default")
 	            {
-	            	console.log("droptext not default");
 	            	$('#dropdown').html("<a href='"+finalSearch+"'><div id='item"+k+"'' class='gloss secthead'>"+dropText+"</div></a>");
 	            	$('#dropdown').css('display', 'block');
 	            	greeting();
 	            	match = true;
+	            	if(minmode){
+			        	$('#dropdown').find('.secthead').css({
+							'font-size': '6vh',
+							'height':'7.5vh'
+						});
+			        }
 	            }
 
 	        }
@@ -259,7 +269,6 @@ $(document).ready(function() {
 	 			$('#item'+selected).css('background-color', itemhoverColor);
 	    	}
 	    }
-
 	});
 });
 

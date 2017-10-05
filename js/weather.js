@@ -24,7 +24,10 @@ function loadWeather(location, woid) {
 };
 
 $(document).ready(function() {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
-  });
+
+  if(!minmode){
+    navigator.geolocation.getCurrentPosition(function(position) {
+      loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+    });
+  }
 });

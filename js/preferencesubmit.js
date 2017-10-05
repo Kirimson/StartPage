@@ -87,5 +87,14 @@ $('#settingssubmit').click(function(){
 	//text
 	localStorage.setItem("personal-text", JSON.stringify(TextArr));
 
+	//minmode
+	var minchecked = "false";
+	if($('#minmodecheck').is(':checked'))
+	{
+		minchecked = "true";
+	}
+
+	localStorage.setItem("min-mode", JSON.stringify(minchecked));
+
 	location.reload();
 });

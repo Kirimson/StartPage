@@ -28,6 +28,10 @@ try{
 	TextArr = textDef;
 }
 
+if(minmode){
+	$('#minmodecheck').prop('checked', true);
+}
+
 function toggleSettings(){
 	if(!clicked){
 		$('#settingsmain').css('display', 'block');

@@ -23,7 +23,7 @@ try{
     customColors = JSON.parse(localStorage.getItem("personal-colors"));
     var test = customColors[0];
 } catch(err) {
-    console.log(err.message);
+    console.warn(err.message);
     customColors = coloursDef;
 }
 
