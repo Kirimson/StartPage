@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 		$( "html" ).keydown(function( e ) {
 
-			if(e.keyCode != 27)
+			if(e.keyCode != 27 && !clicked)
 			{
 				showSearch();
 			}
