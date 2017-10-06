@@ -35,7 +35,7 @@ Links are set up in a specific syntax:
 Website name
 website URL
 
-Each section begins with a backslash, denoting the title of the new section. On a new line is the first website name, and under that is its URL. Repeat website names and URLs as much as you like. When you want to create a new section, on a new line enter "\" and the next sections title.
+Each section begins with a backslash, denoting the title of the new section. On a new line is the first website name, and under that is its URL. Repeat website names and URLs as much as you like. When you want to create a new section, on a new line enter another backslash and the next sections title on that line, then continue with the new section you created.
 
 <h2>Backgrounds</h2>
 Enter 'default' in the text box to set the background for the specified theme to the default image. Paste in an image link to use that image as your background for that theme
