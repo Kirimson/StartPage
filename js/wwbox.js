@@ -170,6 +170,8 @@ $(document).ready(function() {
 	            $('#dropdown').html("");
 	            $('#dropdown').css('display', 'none');
 
+	            var maxitems = 10;
+	            if(minmode){maxitems = 6;}
 
 	            //loop through all items
 	            match = false;
@@ -177,7 +179,7 @@ $(document).ready(function() {
 	            for(i=0; i < items.length;i++)
 	            {
 	            	//if the regexed search equals one of the items, add to the dropdown
-	                if(k < 10 && items[i].innerHTML.toLowerCase().indexOf(searchText) != -1)
+	                if(k < maxitems && items[i].innerHTML.toLowerCase().indexOf(searchText) != -1)
 	                {
 	                	k++;
 	                	maxSelect = k;
