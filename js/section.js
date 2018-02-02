@@ -1,11 +1,8 @@
 var speed = 250;
-var isFirefox = typeof InstallTrigger !== 'undefined';
-var isChrome = !!window.chrome && !!window.chrome.webstore;
 
 $(document).ready(function() {
-    $( ".secthead" ).click(function(e) {
+    $(document).on('click','.secthead',function(){
     	var itemname = this.id;
-
     	if($(this).siblings('#'+itemname+'list').is(":hidden")){
     		$(this).siblings('.section').slideUp(speed);
 			$(this).siblings('#'+itemname+'list').slideToggle(speed);
@@ -19,21 +16,15 @@ $(document).ready(function() {
 	{
         var linkscontainer = $("#links");
 		var settingscontainer = $("#settingsmain");
-	    if (!linkscontainer.is(e.target) && !settingscontainer.is(e.target) && linkscontainer.has(e.target).length === 0  && settingscontainer.has(e.target).length === 0){
-	    	$('.section').slideUp(speed);
+        var schedule = $("#schedule");
+	    if (!linkscontainer.is(e.target) && !settingscontainer.is(e.target)
+            && linkscontainer.has(e.target).length === 0  && settingscontainer.has(e.target).length === 0){
+	    	$('#linkcontain').siblings('.section').slideUp(speed);
 	    }
 	});
 
 	$( ".close" ).click(function() {
     	window.open('', '_self', ''); window.close();
     });
-
-    if(isFirefox===true){
-    	$('#chrome').hide();
-    }
-
-    if(isChrome===true){
-    	$('#firefox').hide();
-    }
 
 });

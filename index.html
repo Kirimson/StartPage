@@ -8,7 +8,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="js/jquery.simpleWeather.min.js"></script>
 		<script src="js/greeting.js"></script>
-		<script src="js/section.js"></script>
+		
 		<script src="js/datetime.js"></script>
 		<script src="https://use.fontawesome.com/d2e846bf92.js"></script>
 		<title>Start Page</title>
@@ -44,11 +44,20 @@
 			<div id="dropdown" class="main">A</div>
 		</div>
 
+		<div id="schedule" class="gloss main">
+	    <div class="glossheading gloss">Schedule</div>
+			<div id="upcoming">
+			</div>
+			<div id="buttons">
+				<input type="button" name="submitbutton" class="item bannerbutton" id="authorize-button" style="display: none;" value="Login to Google Calander"/>
+				<input type="button" name="submitbutton" class="item bannerbutton" id="signout-button" style="display: none;" value="Signout"/>
+			</div>
+			<!-- <script src="js/calander.js"></script> -->
+	    </div>
+
 		<div id="settings">
 			<i class="fa fa-cog" aria-hidden="true"><span>Settings</span></i>	
 		</div>
-		
-		
 
 		<div id="settingsmain" class="main">
 			<div class="glossheading gloss">Settings<span id="settingsclose">&times;</span></div>
@@ -155,15 +164,20 @@
 
 			</div>
 
-			<input type="button" name="submitbutton" class="item" id="settingssubmit" value="Update Settings"/>
+			<input type="button" name="submitbutton" class="item bannerbutton" id="settingssubmit" value="Update Settings"/>
 
 		</div>
 	</body>
-
+	<script src="js/calender.js"></script>
+	<script src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()">
+    </script>
+	<script src="js/section.js"></script>
 	<script src="js/colors.js"></script>
 	<script src="js/preferencewindow.js"></script>		
 	<script src="js/preferencesubmit.js"></script>
 	<script src="js/minmode.js"></script>
 	<script src="js/weather.js"></script>
 	<script src="js/wwbox.js"></script>
+	
 </html>

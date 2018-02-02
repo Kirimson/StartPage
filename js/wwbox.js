@@ -213,13 +213,11 @@ $(document).ready(function() {
 	            if(match && selected == 0)
 	            {
 	            	selected = 1;
-	            	setHoverCol();
 	            }
 
 	            if(selected > maxSelect)
 	            {
 	            	selected = 1;
-	            	setHoverCol();
 	            }
 
 	            if(!match)

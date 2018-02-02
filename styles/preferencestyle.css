@@ -55,29 +55,10 @@
 	outline: none;
 }
 
-#settingssubmit, #settinglinks {
+#settinglinks {
 	font-family: "Eras ITC", "Eras Light ITC", "Calibri Light", "Cantarell", sans-serif;
 	font-weight: lighter;
 	font-size: 12pt;
-}
-
-#settingssubmit{
-	position: absolute;
-	bottom: 0;
-	height: 4.15vh;
-	font-size: 3.15vh;
-	display: block;
-	margin: auto;
-	margin-top: 0.75em;
-	padding-right: 0.5em;
-	padding-left: 0.5em;
-	background-color: red;
-	border: none;
-	transition: background-color 0.1s linear;
-}
-
-#settingssubmit{
-	cursor: pointer;
 }
 
 .instructions{
