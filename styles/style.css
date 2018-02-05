@@ -150,6 +150,13 @@ a{
 	overflow: hidden;
 }
 
+#upcoming{
+	height:41.5vh;
+	margin-right: -17px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
 #dropdown{
 	padding: -1em;
 	position: relative;
@@ -278,7 +285,7 @@ i span{
 		margin: 0 auto;
 	}
 
-	.forcastbox{
+	.forcastbox, #schedule{
 		display: none;
 	}
 

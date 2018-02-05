@@ -99,40 +99,47 @@ function listUpcomingEvents() {
     var events = response.result.items;
 
     if (events.length > 0) {
-      var lastday = new Date();
-      lastday.setDate(lastday.getDate() - 1)
-      var oldDate;
-      var decombined = false;
+      var lastStartDate = new Date();
+      lastStartDate.setDate(lastStartDate.getDate() - 1)
+      var newDay = false;
       for (i = 0; i < events.length; i++) {
 
         var event = events[i];
         var htmlLink = event.htmlLink;
-        var when = event.start.dateTime;
-        if (!when) {
-          when = event.start.date;
+
+        var start = event.start.dateTime;
+        if (!start) {
+          start = event.start.date;
         }
+        var startDate = new Date(start);
 
-        var day = new Date(when);
+        var end = event.end.dateTime;
+        if (!end) {
+          end = event.end.date;
+        }
+        var endDate = new Date(end)
 
-        if(day.getDay() != lastday.getDay())
+        //if on a new day, make a new section
+        if(startDate.getDay() != lastStartDate.getDay())
         {
           if(i > 0)
           {
+            //if on second section and above, push last section to page
             appendPre(newHTML+'</div>');
-            if(!decombined)
+            if(!newDay)
             {
-              setToday(lastday.getDay());
-              decombined = true;
+              setToday(lastStartDate.getDay());
+              newDay = true;
             }
             
           }
-          var newHTML='<div id="'+days[day.getDay()]+'" class="secthead gloss">'+days[day.getDay()]+'</div><div id="'+days[day.getDay()]+'list" class="section hidden">';
+          var newHTML='<div id="'+days[startDate.getDay()]+'" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="'+days[startDate.getDay()]+'list" class="section hidden">';
         }
 
-        newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item">'+event.summary + ' (' + getTime(day) + ')'+'</div></a>'
+        newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item calendaritem">'+event.summary + 
+        (event.location == undefined ? "" : ' <br> '+ event.location) + '<br>' + getTime(startDate) + ' - '+ getTime(endDate) + '</div></a>'
 
-        lastday = day;
-        console.log(lastday.getDay())
+        lastStartDate = startDate;
       }
       appendPre(newHTML+'</div>');
     } else {

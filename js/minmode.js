@@ -8,6 +8,7 @@ $(document).ready(function() {
 		$('#links').css('display', 'none');
 		$('#weather').css('display', 'none');
 		$('#searchtext').css('display', 'none');
+		$('#schedule').css('display', 'none');
 		$('#search').children(".glossheading").css('display', 'none');
 
 		//make search text bigger
