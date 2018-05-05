@@ -102,7 +102,6 @@ function listUpcomingEvents() {
       var lastStartDate = new Date();
       lastStartDate.setDate(lastStartDate.getDate() - 1)
       var newDay = false;
-
       for (i = 0; i < events.length; i++) {
 
         var event = events[i];
@@ -134,7 +133,7 @@ function listUpcomingEvents() {
             }
             
           }
-          var newHTML='<div id="eventDay" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="eventDaylist" class="section hidden">';
+          var newHTML='<div id="'+days[startDate.getDay()]+'" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="'+days[startDate.getDay()]+'list" class="section hidden">';
         }
 
         newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item calendaritem">'+event.summary + 
