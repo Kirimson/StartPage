@@ -97,7 +97,7 @@ function listUpcomingEvents() {
     'orderBy': 'startTime'
   }).then(function(response) {
     var events = response.result.items;
-
+    var days = 0;
     if (events.length > 0) {
       var lastStartDate = new Date();
       lastStartDate.setDate(lastStartDate.getDate() - 1)
@@ -122,6 +122,7 @@ function listUpcomingEvents() {
         //if on a new day, make a new section
         if(startDate.getDay() != lastStartDate.getDay())
         {
+          days++;
           if(i > 0)
           {
             //if on second section and above, push last section to page
@@ -133,7 +134,7 @@ function listUpcomingEvents() {
             }
             
           }
-          var newHTML='<div id="'+days[startDate.getDay()]+'" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="'+days[startDate.getDay()]+'list" class="section hidden">';
+          var newHTML='<div id="'+days[startDate.getDay()]+(days)'" class="secthead gloss">'+days[startDate.getDay()]+(days)+'</div><div id="'+days[startDate.getDay()]+'list" class="section hidden">';
         }
 
         newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item calendaritem">'+event.summary + 
