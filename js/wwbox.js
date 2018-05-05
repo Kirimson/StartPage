@@ -266,7 +266,7 @@ $(document).ready(function() {
 	    		{
 	    			selected--;
 	    		}
-	 			$('#item'+selected).css('background-color', itemhoverColor);
+	 			$('#item'+selected).css('background-color', sectheadhoverColor);
 	    	}
 	    }
 	});
