@@ -45,7 +45,6 @@ if(LinkData != null)
 //try and get minmode flag
 try{
 	var minmode = JSON.parse(localStorage.getItem("min-mode"));
-	console.log(minmode);
 	if(minmode == "true")
 	{
 		minmode = true
@@ -54,7 +53,6 @@ try{
 	{
 		minmode = false;
 	}
-	console.log(minmode);
 } catch(err) {
 	console.warn("Couldnt find min-mode storage val. Defaulting")
 	minmode = false;

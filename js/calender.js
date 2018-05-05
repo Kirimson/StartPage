@@ -98,10 +98,12 @@ function listUpcomingEvents() {
   }).then(function(response) {
     var events = response.result.items;
     var daynumber = 0;
+
     if (events.length > 0) {
       var lastStartDate = new Date();
       lastStartDate.setDate(lastStartDate.getDate() - 1)
       var newDay = false;
+
       for (i = 0; i < events.length; i++) {
 
         var event = events[i];
@@ -123,19 +125,20 @@ function listUpcomingEvents() {
         if(startDate.getDay() != lastStartDate.getDay())
         {
           daynumber++;
+
           if(i > 0)
           {
             //if on second section and above, push last section to page
             appendPre(newHTML+'</div>');
             if(!newDay)
             {
-              setToday(lastStartDate.getDay());
+              setToday(lastStartDate, daynumber-1);
               newDay = true;
             }
             
           }
-          var newHTML='<div id="'+days[startDate.getDay()]+(daynumber)+'" class="secthead gloss">'
-          +days[startDate.getDay()]+'</div><div id="'+days[startDate.getDay()]+(daynumber)+'list" class="section hidden">';
+          var newHTML='<div id="'+days[startDate.getDay()]+daynumber+'" class="secthead gloss">'
+          +days[startDate.getDay()]+'</div><div id="'+days[startDate.getDay()]+daynumber+'list" class="section hidden">';
         }
 
         newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item calendaritem">'+event.summary + 
@@ -155,9 +158,9 @@ function getTime(day){
   return (day.getHours() < 10 ? '0'+day.getHours() : day.getHours()) + ':' + (day.getMinutes() < 10 ? '0'+day.getMinutes() : day.getMinutes())
 }
 
-function setToday(day){
-  var itemname = days[day];
+function setToday(lastStartDate, daynumber){
+  var itemname = days[lastStartDate.getDay()];
 
-  document.getElementById(itemname+'list').style.display = "block"
+  document.getElementById(itemname+daynumber+'list').style.display = "block"
 
 }
