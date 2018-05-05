@@ -134,7 +134,7 @@ function listUpcomingEvents() {
             }
             
           }
-          var newHTML='<div id="eventDay'+i+'" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="eventDay'+i+'list" class="section hidden">';
+          var newHTML='<div id="eventDay" class="secthead gloss">'+days[startDate.getDay()]+'</div><div id="eventDaylist" class="section hidden">';
         }
 
         newHTML+='<a class="sectionlink" href="'+htmlLink+'" target="_blank" ><div class="item calendaritem">'+event.summary + 
