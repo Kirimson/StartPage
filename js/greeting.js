@@ -52,10 +52,10 @@ function timeCheck()
     var date = new Date();
     var ho = date.getHours();
     
-    if(ho >= 1 && ho <= 8){return 1;}
-    if(ho >= 9 && ho <= 11){return 2;}
+    if(ho >= 1 && ho <= 6){return 1;}
+    if(ho >= 6 && ho <= 11){return 2;}
     if(ho >= 12 && ho <= 17){return 3;}
-    if(ho >= 18 || ho ==0){return 4;}
+    if(ho >= 18 || ho == 0){return 4;}
 };
 
 function greeting() {
