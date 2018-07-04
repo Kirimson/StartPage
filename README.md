@@ -13,7 +13,13 @@ StartPage has 3 main features. The links sidebar, the search and weather.
 <h2>links sidebar</h2>
 Here is where all your links will live, neatly organised (if you want them to be!) into sections of your choice. Click on a section to expand it, and click a link to go to the site
 <h2>Search box</h2>
-The search box, arguably the best feature of StartPage, allowing you to search, go to your links and instantly search certain sites too!
+The search box, arguably the best feature of StartPage, allowing you to search, go to your links and instantly search certain sites too! DuckDuckGo like bang!s can be used, currently:
+<ul>
+  <li>ama:</li>
+  <li>yt:</li>
+  <li>map:</li>
+</ul>
+Use the bang followed by your serach query, and hit enter to instantly search that site
 <h2>Weather</h2>
 Allow location services to find the weather in your local area. No other information about your location is used, look at the source if you can’t take my word. The forecast gives you the current temperature, and the forecasted temperature for the next 5 days.
 <h2>Themes</h2>
@@ -22,7 +28,7 @@ Throughout the day, the theme of the site will change slightly, with different b
 <li>9AM to 12PM - Morning</li>
 <li>12PM to 6PM - Morning</li>
 <li>6PM to 1AM - Evening</li>
-<li>1PM to 9AM - Night</li>
+<li>1AM to 6AM - Night</li>
 </ul>
 
 <h1>Customisation</h1>
