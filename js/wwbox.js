@@ -46,6 +46,10 @@ function getSearchTerms(searchString){
 			finalSearch = "https://duckduckgo.com/?q="+baseString;
 			dropText = "Duckduckgo:"+plainSearch;
 			break;
+		case "do":
+			finalSearch = "https://www.digitalocean.com/community/search?q="+baseString;
+			dropText = "Digital Ocean::"+plainSearch;
+			break;
 		default:
 			finalSearch = "https://www.google.co.uk/search?q="+baseString;
 			dropText = "default";
