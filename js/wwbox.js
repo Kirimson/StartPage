@@ -47,7 +47,7 @@ function getSearchTerms(searchString){
 			dropText = "Duckduckgo:"+plainSearch;
 			break;
 		case "do":
-			finalSearch = "https://www.digitalocean.com/community/search?q="+baseString;
+			finalSearch = "https://www.digitalocean.com/community/search?q="+baseString+"&type=tutorials";
 			dropText = "Digital Ocean:"+plainSearch;
 			break;
 		default:
